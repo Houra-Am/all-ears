@@ -1,7 +1,11 @@
 import React from "react";
 
 const Podcast = () => {
-  return <div></div>;
+  return (
+    <div>
+      <h1>Podcasts</h1>
+    </div>
+  );
 };
 
 export default Podcast;
