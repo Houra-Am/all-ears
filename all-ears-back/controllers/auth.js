@@ -80,4 +80,22 @@ router.post("/login", async (req, res) => {
     }
 })
 
+router.get("/connected", async (req, res) => {
+    try {
+        const token = req.headers.authorization
+        const result = jwt.verify(token.split(" ")[1], process.env.JWT_SECRET)
+        if (result) {
+            res.status(200).json({
+                status: 200,
+                message: "Connected"
+            })
+        }
+    } catch (err) {
+        res.status(403).json({
+            status: 403,
+            message: err,
+        })
+    }
+})
+
 module.exports = router;
