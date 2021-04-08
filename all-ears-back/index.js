@@ -5,9 +5,8 @@ require('dotenv').config()
 
 const sequelize = require("./services/sequelize")
 const podcastsRoute = require("./controllers/podcasts")
+const AuthRoute = require("./controllers/auth")
 const app = express();
-
-sequelize() // Connexion bdd mysql
 
 app.use(cors())
 app.use(bodyParser.json());
@@ -15,6 +14,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+app.use(AuthRoute)
 app.use(podcastsRoute)
 
 app.listen(8000, () => {
