@@ -1,9 +1,10 @@
 import React from "react";
+import PodcastsPage from "./PodcastPage";
 
 const SupportUs = () => {
   return (
     <div>
-      <h2>Support Us</h2>
+      <PodcastsPage></PodcastsPage>
     </div>
   );
 };

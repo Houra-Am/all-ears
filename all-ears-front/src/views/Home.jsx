@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Layout,
   Menu,
@@ -22,6 +22,29 @@ const { Header, Footer, Sider, Content } = Layout;
 const { Meta } = Card;
 
 const Home = () => {
+  const [podcastThumbnail, setPodcastThumbnail] = useState([]);
+
+  const getRandomPodcast = () => {
+    fetch("http://localhost:8000/podcasts/random")
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        setPodcastThumbnail([
+          result.body.image,
+          result.body.image,
+          result.body.image,
+          result.body.image,
+          result.body.image,
+          result.body.image,
+        ]);
+      });
+  };
+
+  useEffect(() => {
+    getRandomPodcast();
+  }, []);
+
   return (
     <div className='main-wrapper'>
       <Layout>
@@ -120,9 +143,18 @@ const Home = () => {
                   </Button>
                 </Col>
                 <Col span={12}>
-                  <Thumbnail
-                    className='podcats-thumbnail'
-                    hoverable></Thumbnail>
+                  {podcastThumbnail && (
+                    <Thumbnail
+                      className='podcats-thumbnail'
+                      image={podcastThumbnail}
+                      hoverable></Thumbnail>
+                  )}
+                  {podcastThumbnail && (
+                    <Thumbnail
+                      className='podcats-thumbnail'
+                      image={podcastThumbnail}
+                      hoverable></Thumbnail>
+                  )}
                 </Col>
               </Row>
             </Content>
