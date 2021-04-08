@@ -12,11 +12,12 @@ import {
   Divider,
 } from "antd";
 import { DownOutlined } from "@ant-design/icons";
-// import "../css/Home.css";
+import "../css/Home.css";
 import head from "../image/head.png";
 import imagination from "../image/imagination.png";
 import NavBar from "../components/NavBar";
 import DropDown from "../components/DropDown";
+import Thumbnail from "../components/Thumbnail";
 const { Header, Footer, Sider, Content } = Layout;
 const { Meta } = Card;
 
@@ -119,11 +120,9 @@ const Home = () => {
                   </Button>
                 </Col>
                 <Col span={12}>
-                  <Card
-                    className='header-image'
-                    hoverable
-                    style={{ width: 400 }}
-                    cover={<img alt='example' src={head} />}></Card>
+                  <Thumbnail
+                    className='podcats-thumbnail'
+                    hoverable></Thumbnail>
                 </Col>
               </Row>
             </Content>
