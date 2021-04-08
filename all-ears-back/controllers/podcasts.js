@@ -1,12 +1,48 @@
 const express = require("express");
 const unirest = require("unirest")
 const router = express.Router();
+const PodcastsLikes = require("../models/podcasts_likes")
+const jwt = require("jsonwebtoken")
 
 async function listenNotesApi(url) {
     const response = await unirest.get(url)
         .header('X-ListenAPI-Key', process.env.LN_KEY)
     return response.toJSON()
 }
+
+router.post("/podcasts/like/:id", async (req, res) => {
+    try {
+        const token = req.headers.authorization
+        const result = jwt.verify(token.split(" ")[1], process.env.JWT_SECRET)
+        if (result) {
+            await PodcastsLikes.create({
+                fk_user_id: result.id,
+                podcast_id: req.params.id
+            })
+            res.status(200).json({
+                status: 200,
+                message: "Podcast success liked!"
+            })
+        }
+    } catch (err) {
+        console.log(err)
+        res.status(403).json({
+            status: 403,
+            message: err,
+        })
+    }
+})
+
+// Avoir 1 podcasts aleatoire
+router.get("/podcasts/random", async (req, res) => {
+    try {
+        const response = await listenNotesApi("https://listen-api.listennotes.com/api/v2/just_listen")
+        res.status(200).json(response)
+    } catch (err) {
+        console.log(err)
+    }
+})
+
 
 // Avoir les meilleurs podcasts d'un genre avec l'ID du genre avec la page /podcasts/best/:id?page=1
 router.get("/podcasts/best/:id", async (req, res) => {
