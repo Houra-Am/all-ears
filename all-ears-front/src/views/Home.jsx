@@ -16,6 +16,7 @@ import "../css/Home.css";
 import head from "../image/head.png";
 import imagination from "../image/imagination.png";
 import NavBar from "../components/NavBar";
+import DropDown from "../components/DropDown";
 const { Header, Footer, Sider, Content } = Layout;
 const { Meta } = Card;
 
@@ -69,7 +70,22 @@ const Home = () => {
                     cover={<img alt='example' src={imagination} />}></Card>
                 </Col>
                 <Col span={12}>
-                  <h1>I Want to Listen to [category] While I'm [activity]</h1>
+                  <h1>
+                    I Want to Listen to{" "}
+                    <DropDown
+                      category={{
+                        optionOne: "Star Wars",
+                        optionTwo: "Tech Podcasts",
+                        optionThree: "True Crime",
+                      }}></DropDown>{" "}
+                    While I{" "}
+                    <DropDown
+                      category={{
+                        optionOne: "Run",
+                        optionTwo: "Do Laundry",
+                        optionThree: "Drive",
+                      }}></DropDown>
+                  </h1>
                   <Button
                     className='listen-now'
                     htmlType='submit'
@@ -90,13 +106,6 @@ const Home = () => {
               }}>
               <Row>
                 <Col span={12}>
-                  <Card
-                    className='header-image'
-                    hoverable
-                    style={{ width: 400 }}
-                    cover={<img alt='example' src={head} />}></Card>
-                </Col>
-                <Col span={12}>
                   <h1>DISCOVER MORE</h1>
                   <p>
                     Useless to say! You can listen to your favorite podcast or
@@ -108,6 +117,13 @@ const Home = () => {
                     type='primary'>
                     LISTEN NOW
                   </Button>
+                </Col>
+                <Col span={12}>
+                  <Card
+                    className='header-image'
+                    hoverable
+                    style={{ width: 400 }}
+                    cover={<img alt='example' src={head} />}></Card>
                 </Col>
               </Row>
             </Content>
