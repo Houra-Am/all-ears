@@ -8,7 +8,6 @@ async function listenNotesApi(url) {
     return response.toJSON()
 }
 
-
 // Avoir les meilleurs podcasts d'un genre avec l'ID du genre avec la page /podcasts/best/:id?page=1
 router.get("/podcasts/best/:id", async (req, res) => {
     try {
@@ -29,7 +28,6 @@ router.get("/podcasts/best/:id", async (req, res) => {
         })
     }
 })
-
 
 // Avoir tous les genres de podcasts => /podcasts/genres - Avoir les best genres de podcasts => /podcasts/genres?best=true
 // Si best = autre valeur que TRUE il enverra tous les genres.
@@ -60,7 +58,6 @@ router.get("/podcasts/genres", async (req, res) => {
         })
     }
 })
-
 
 // Avoir toutes les informations d'un podcasts via son ID => /podcasts/:id
 router.get("/podcasts/:id", async (req, res) => {
