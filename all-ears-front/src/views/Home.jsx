@@ -12,7 +12,7 @@ import {
   Divider,
 } from "antd";
 import { DownOutlined } from "@ant-design/icons";
-import "../css/Home.css";
+// import "../css/Home.css";
 import head from "../image/head.png";
 import imagination from "../image/imagination.png";
 import NavBar from "../components/NavBar";

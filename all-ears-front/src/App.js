@@ -8,11 +8,13 @@ import Home from "./views/Home";
 import Podcast from "./views/Podcast";
 import SupportUs from "./views/SupportUs";
 import NavBar from "./components/NavBar";
+import PodcastCard from "./components/PodcastCard";
 
 function App() {
   return (
     <div className='App'>
       <NavBar />
+       <PodcastCard></PodcastCard> 
     </div>
   );
 }
