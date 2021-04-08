@@ -1,0 +1,45 @@
+.footer {
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 30px;
+}
+
+h4, h3{
+    color: white;
+}
+
+.cookies{
+    padding-bottom: 15px;
+}
+
+ /* .social-icons{
+     float: right;
+ } */
+.social-icons li {
+    list-style: none;
+    display: inline-block;
+}
+.social-icons i {
+    color: white;
+    padding: 10px 10px;
+    border-radius: 2px;
+}
+
+.social-icons i:hover {
+    background-color: black;
+    color: white;
+    transition: .5s;
+}
+
+.social-icons .fa-facebook:hover {
+    background-color: #3b5998;
+}
+.social-icons .fa-instagram:hover {
+    background-color: #5e2a51;
+}
+.social-icons .fa-youtube:hover {
+    background-color: #e64a41;
+}
+.social-icons .fa-twitter:hover {
+    background-color: #00aced;
+}
