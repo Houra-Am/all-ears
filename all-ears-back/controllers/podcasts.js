@@ -3,6 +3,7 @@ const unirest = require("unirest")
 const router = express.Router();
 const PodcastsLikes = require("../models/podcasts_likes")
 const jwt = require("jsonwebtoken")
+const userConnected = require("../middlewares/authentification")
 
 async function listenNotesApi(url) {
     const response = await unirest.get(url)
@@ -10,22 +11,17 @@ async function listenNotesApi(url) {
     return response.toJSON()
 }
 
-router.post("/podcasts/like/:id", async (req, res) => {
+router.post("/podcasts/like/:id", userConnected, async (req, res) => {
     try {
-        const token = req.headers.authorization
-        const result = jwt.verify(token.split(" ")[1], process.env.JWT_SECRET)
-        if (result) {
-            await PodcastsLikes.create({
-                fk_user_id: result.id,
-                podcast_id: req.params.id
-            })
-            res.status(200).json({
-                status: 200,
-                message: "Podcast success liked!"
-            })
-        }
+        await PodcastsLikes.create({
+            fk_user_id: req.user.id,
+            podcast_id: req.params.id
+        })
+        res.status(200).json({
+            status: 200,
+            message: "Podcast success liked!"
+        })
     } catch (err) {
-        console.log(err)
         res.status(403).json({
             status: 403,
             message: err,
