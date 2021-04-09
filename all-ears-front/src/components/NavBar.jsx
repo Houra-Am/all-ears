@@ -3,9 +3,8 @@ import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import { Menu } from "antd";
 import Home from "../views/Home";
 import Podcasts from "../views/Podcasts";
-import PodcastDetailSection from "../components/PodDetailSection";
 import SupportUs from "../views/SupportUs";
-import PodcastPage from "../views/PodcastPage"
+import PodcastPage from "../views/PodcastPage";
 
 export default function NavBar(props) {
   return (

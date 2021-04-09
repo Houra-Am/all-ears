@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Layout, Breadcrumb, Card, Row, Col, Button, Divider } from "antd";
+import { Layout, Breadcrumb, Row, Col, Button, Divider } from "antd";
 import Thumbnail from "../components/Thumbnail";
 import HomeMiddleSection from "../components/HomeMiddleSection";
 import HomeBanner from "../components/HomeBanner";
