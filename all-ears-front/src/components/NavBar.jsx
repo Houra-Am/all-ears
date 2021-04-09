@@ -25,6 +25,7 @@ export default function NavBar(props) {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/Podcast' component={Podcast} />
+        <Route path='/Podcast/:id' component={Podcast} />
         <Route path='/SupportUs' component={SupportUs} />
       </Switch>
     </BrowserRouter>
