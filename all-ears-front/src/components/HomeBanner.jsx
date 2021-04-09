@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout, Card, Row, Col, Button } from "antd";
-import "../CSS/Home.css";
+import "../css/Home.css";
 import head from "../image/head.png";
 const { Content } = Layout;
 const { Meta } = Card;
