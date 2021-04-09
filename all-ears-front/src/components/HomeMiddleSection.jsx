@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout, Card, Row, Col, Button } from "antd";
-import "../css/Home.css";
+import "../CSS/Home.css";
 import imagination from "../image/imagination.png";
 import DropDown from "../components/DropDown";
 const { Content } = Layout;

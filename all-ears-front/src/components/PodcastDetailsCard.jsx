@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card } from "antd";
 import { HeartTwoTone } from "@ant-design/icons";
 
-const PodcastDetailsCard = () => {
+const PodcastDetailsCard = (props) => {
+
+
+  // const getEachPod = (props) => {
+  //   console.log(props.match)
+  //   const apiUrl = `http://localhost:8000/podcasts/${props.match.params.id}`;
+  //   fetch(apiUrl)
+  //     //should change the id
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((result) => {
+  //       console.log(result);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   getEachPod();
+  // }, []);
+
   return (
     <div>
       <div className='row'>
@@ -14,7 +33,7 @@ const PodcastDetailsCard = () => {
               cover={
                 <img
                   alt='example'
-                  src='https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
+                  src={props.img}
                 />
               }></Card>
           </div>
@@ -22,7 +41,7 @@ const PodcastDetailsCard = () => {
 
         <div className='col'>
           <p>Duration</p>
-          <h4>Title</h4>
+          <h4>{props.title}</h4>
           <div>
             <p>
               Description:On la reconnaît à l'abondance Description:On la

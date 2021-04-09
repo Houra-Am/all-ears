@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Layout, Breadcrumb, Row, Col, Button, Divider } from "antd";
+import { Layout, Breadcrumb, Card, Row, Col, Button, Divider } from "antd";
 import Thumbnail from "../components/Thumbnail";
 import HomeMiddleSection from "../components/HomeMiddleSection";
 import HomeBanner from "../components/HomeBanner";
-import "../css/Home.css";
+import "../CSS/Home.css";
 const { Footer, Content } = Layout;
 
 const Home = () => {
