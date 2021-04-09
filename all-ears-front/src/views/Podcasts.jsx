@@ -6,21 +6,18 @@ const Podcasts = (props) => {
   const [podImg, setPodImg] = useState([]);
   const [podDescription, setPodDescription] = useState([]);
   const [podTitle, setPodTitle] = useState([]);
-  const [podcasts, setPodcasts] = useState([]);
+  const [podcasts, setPodcasts] = useState();
 
   const getPodInfo = () => {
-    console.log("podcasts");
-    console.log("podcasts", props.match.params.id);
-    let url = `http://localhost:8000/podcasts/best/${props.match.params.id}`;
-    console.log(url);
 
-    fetch(`http://localhost:8000/podcasts/best/${props.match.params.id}`)
+    const url = `http://localhost:8000/podcasts/best/${props.match.params.id}`;
+    fetch(url)
       .then((response) => {
         return response.json();
       })
       .then((results) => {
-        console.log("results", results.body.podcasts);
-        setPodcasts([results.body.podcasts]);
+        console.log("results", results.body);
+        setPodcasts(results.body.podcasts);
 
         // setPodcasts([results.body.podcasts]);
         // setPodTitle([results.body.title]);
@@ -31,6 +28,7 @@ const Podcasts = (props) => {
 
   useEffect(() => {
     getPodInfo();
+    console.log("podcasts", podcasts)
   }, []);
 
   return (
@@ -49,9 +47,15 @@ const Podcasts = (props) => {
           );
           
       })}*/}
-      {podcasts > 0 &&
+      {podcasts &&
         podcasts.map((podcast) => {
-          return <p>{podcast.id}</p>;
+          return (
+            <>
+              <Link to={`/podcast/${podcast.id}`}>
+                <p>{podcast.title}</p>
+              </Link>
+            </>
+          );
         })}
     </div>
   );

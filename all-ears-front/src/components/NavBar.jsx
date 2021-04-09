@@ -5,6 +5,7 @@ import Home from "../views/Home";
 import Podcasts from "../views/Podcasts";
 import PodcastDetailSection from "../components/PodDetailSection";
 import SupportUs from "../views/SupportUs";
+import PodcastPage from "../views/PodcastPage"
 
 export default function NavBar(props) {
   return (
@@ -24,7 +25,7 @@ export default function NavBar(props) {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/podcasts/genre/:id' component={Podcasts} />
-        <Route path='/podcast/:id' component={PodcastDetailSection} />
+        <Route path='/podcast/:id' component={PodcastPage} />
         <Route exact path='/supportUs' component={SupportUs} />
       </Switch>
     </BrowserRouter>
