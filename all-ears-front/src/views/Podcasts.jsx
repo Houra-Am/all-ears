@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Layout, Menu, Breadcrumb, Card, Col, Row } from "antd";
+import { Layout, Breadcrumb, Card, Col, Row } from "antd";
 import { Link } from "react-router-dom";
+import { FaHeadphonesAlt } from "react-icons/fa";
+import { MdLibraryMusic } from "react-icons/md";
 import PodStructure from "../components/podcasts/PodStructure";
 import CarouselBanner from "../components/podcasts/Carousel";
-import PodcastCard from "../components/podcasts/PodcastCard";
+import TopSearchedCard from "../components/podcasts/TopSearchedCard";
 import BestPods from "../components/podcasts/BestPods";
+import TopicTags from "../components/podcasts/TopicTags";
 
-const { SubMenu } = Menu;
+import "../css/view-style/Podcasts.css";
+
 const { Content } = Layout;
+const style = { padding: "30px 0", margin: "auto" };
 
 const Podcasts = (props) => {
-  //const [podImg, setPodImg] = useState([]);
-  //const [podDescription, setPodDescription] = useState([]);
-  //const [podTitle, setPodTitle] = useState([]);
   const [podcasts, setPodcasts] = useState();
 
   const getPodInfo = () => {
@@ -39,47 +41,69 @@ const Podcasts = (props) => {
         <Layout style={{ padding: "0 24px 24px" }}>
           <Breadcrumb style={{ margin: "16px 0" }}>
             <div className='demo-nav'>
-              <Link to='/'> Home</Link>
-              <Link to='/apps'> Application List</Link>
+              <Link to='/'>
+                <FaHeadphonesAlt /> Podcasts
+              </Link>
+              <Link to='/library'>
+                <MdLibraryMusic /> Your Library
+              </Link>
             </div>
           </Breadcrumb>
           <CarouselBanner />
 
+          {/* Top Searched podcasts */}
           <Card>
-            <Card title='Popular Podcasts'>
-              {podcasts &&
-                podcasts.slice(0, 5).map((podcast) => {
-                  return (
-                    <Content className='site-card-wrapper'>
-                      <Link to={`/podcast/${podcast.id}`}>
-                        <PodcastCard
-                          title={podcast.title}
-                          publisher={podcast.publisher}
-                          thumbnail={podcast.thumbnail}
-                        />
-                      </Link>
-                    </Content>
-                  );
-                })}
+            <Card type='inner' title='Top Search'>
+              <Row>
+                {podcasts &&
+                  podcasts.slice(0, 5).map((podcast) => {
+                    return (
+                      <Col className='gutter-row' style={style} span={4}>
+                        <Content className='site-card-wrapper'>
+                          <Link to={`/podcast/${podcast.id}`}>
+                            <TopSearchedCard
+                              title={podcast.title}
+                              publisher={podcast.publisher}
+                              thumbnail={podcast.thumbnail}
+                            />
+                          </Link>
+                        </Content>
+                      </Col>
+                    );
+                  })}
+              </Row>
+            </Card>
+          </Card>
+
+          {/* Popular podcasts */}
+          <Card>
+            <Card type='inner' title='Popular Podcasts'>
+              <Row>
+                {podcasts &&
+                  podcasts.slice(5, 10).map((podcast) => {
+                    return (
+                      <Col className='gutter-row' style={style} span={4}>
+                        <Content className='site-card-wrapper'>
+                          <Link to={`/podcast/${podcast.id}`}>
+                            <BestPods
+                              title={podcast.title}
+                              publisher={podcast.publisher}
+                              thumbnail={podcast.thumbnail}
+                            />
+                          </Link>
+                        </Content>
+                      </Col>
+                    );
+                  })}
+              </Row>
             </Card>
           </Card>
 
           <Card>
-            <Card type='inner' title='Popular Podcasts'>
-              {podcasts &&
-                podcasts.slice(5, 10).map((podcast) => {
-                  return (
-                    <Content className='site-card-wrapper'>
-                      <Link to={`/podcast/${podcast.id}`}>
-                        <BestPods
-                          title={podcast.title}
-                          publisher={podcast.publisher}
-                          thumbnail={podcast.thumbnail}
-                        />
-                      </Link>
-                    </Content>
-                  );
-                })}
+            <Card type='inner' title='Browse By Topic'>
+              <Row>
+                <TopicTags />
+              </Row>
             </Card>
           </Card>
         </Layout>

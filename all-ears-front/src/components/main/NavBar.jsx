@@ -7,6 +7,7 @@ import Signup from "../../views/Signup";
 import Login from "../../views/Login";
 import SupportUs from "../../views/SupportUs";
 import PodcastPage from "../../views/PodcastPage";
+import YourLib from "../../views/YourLib";
 
 export default function NavBar(props) {
   return (
@@ -16,7 +17,7 @@ export default function NavBar(props) {
           <Link to='/'>All Ears</Link>
         </Menu.Item>
         <Menu.Item key='2'>
-          <Link to='/podcasts/genre/127'>Podcasts</Link>
+          <Link to='/podcasts/genre/144'>Podcasts</Link>
         </Menu.Item>
         <Menu.Item key='3'>
           <Link to='/supportUs'>Support Us</Link>
@@ -30,6 +31,7 @@ export default function NavBar(props) {
         <Route path='/signup' component={Signup} />
         <Route path='/login' component={Login} />
         <Route path='/admin' component={PodcastPage} />
+        <Route path='/library' component={YourLib} />
         <Route exact path='/supportUs' component={SupportUs} />
       </Switch>
     </BrowserRouter>
