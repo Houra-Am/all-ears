@@ -2,10 +2,7 @@ import React from "react";
 import "./App.css";
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NavBar from "./components/NavBar";
-
-// import PodcastDetails from"./components/PodcastDetails";
-// import Signup from "./views/Signup";
+import NavBar from "./components/main/NavBar.jsx";
 
 function App() {
   return (
@@ -13,7 +10,6 @@ function App() {
       <NavBar />
       {/* <Signup /> */}
     </div>
-   
   );
 }
 

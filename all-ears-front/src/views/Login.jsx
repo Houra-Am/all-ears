@@ -1,5 +1,5 @@
-import React from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
+import React from "react";
+import { Form, Input, Button, Checkbox } from "antd";
 import { useHistory } from "react-router-dom";
 
 const layout = {
@@ -12,71 +12,64 @@ const layout = {
 };
 
 export default function Login() {
-
   let history = useHistory();
 
   const onFinish = async (data) => {
     try {
-     
-      console.log('Received values of form: ', data);
-      const response = await fetch('http://localhost:8000/auth/login', {
-        method: 'POST',
+      console.log("Received values of form: ", data);
+      const response = await fetch("http://localhost:8000/auth/login", {
+        method: "POST",
         headers: {
-          'content-type': 'application/json'
+          "content-type": "application/json",
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       });
       if (response.ok) {
         const tokenObj = await response.json();
-        localStorage.setItem('token', tokenObj.token);
-        history.push('/admin')
+        localStorage.setItem("token", tokenObj.token);
+        history.push("/admin");
       }
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
   };
-
 
   return (
     <Form
       {...layout}
-      name="basic"
+      name='basic'
       onFinish={onFinish}
-      style={{ justifyContent:"center"}}
-    >
+      style={{ justifyContent: "center" }}>
       <Form.Item
-        label="Email"
-        name="email"
-        style={{marginTop: 50, marginRight: 20}}
+        label='Email'
+        name='email'
+        style={{ marginTop: 50, marginRight: 20 }}
         rules={[
           {
             required: true,
-            message: 'Please input your email!',
+            message: "Please input your email!",
           },
-        ]}
-      >
+        ]}>
         <Input />
       </Form.Item>
 
       <Form.Item
-        label="Password"
-        name="password"
-        style={{ marginRight: 20}}
+        label='Password'
+        name='password'
+        style={{ marginRight: 20 }}
         rules={[
           {
             required: true,
-            message: 'Please input your password!',
+            message: "Please input your password!",
           },
-        ]}
-      >
+        ]}>
         <Input.Password />
       </Form.Item>
 
-      <Form.Item 
-      name="remember" 
-      valuePropName="checked"
-      style={{marginLeft: 20}}
-      >
+      <Form.Item
+        name='remember'
+        valuePropName='checked'
+        style={{ marginLeft: 20 }}>
         <Checkbox>Remember me</Checkbox>
       </Form.Item>
 
@@ -84,15 +77,11 @@ export default function Login() {
         wrapperCol={{
           offset: 8,
           span: 10,
-        }}
-      >
-        <Button type="primary" htmlType="submit">
+        }}>
+        <Button type='primary' htmlType='submit'>
           Submit
-          </Button>
+        </Button>
       </Form.Item>
     </Form>
-  )
+  );
 }
-
-
-cd

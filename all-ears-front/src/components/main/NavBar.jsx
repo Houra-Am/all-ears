@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import { Menu } from "antd";
-import Home from "../views/Home";
-import Podcasts from "../views/Podcasts";
-import SupportUs from "../views/SupportUs";
-import PodcastPage from "../views/PodcastPage";
+import Home from "../../views/Home";
+import Podcasts from "../../views/Podcasts";
+import SupportUs from "../../views/SupportUs";
+import PodcastPage from "../../views/PodcastPage";
 
 export default function NavBar(props) {
   return (
@@ -14,7 +14,7 @@ export default function NavBar(props) {
           <Link to='/'>All Ears</Link>
         </Menu.Item>
         <Menu.Item key='2'>
-          <Link to='/podcasts/genre/144'>Podcasts</Link>
+          <Link to='/podcasts/genre/127'>Podcasts</Link>
         </Menu.Item>
         <Menu.Item key='3'>
           <Link to='/supportUs'>Support Us</Link>

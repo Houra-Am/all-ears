@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Layout, Breadcrumb } from "antd";
-import PodDetailSection from "../components/PodPage/PodDetailSection";
+import { Layout, Breadcrumb, Divider } from "antd";
+import ShowDetails from "../components/podPage/ShowDetails";
+import EpisodeCard from "../components/podPage/EpisodeCard";
+import EllipsisText from "react-ellipsis-text";
+
 const { Content } = Layout;
 
 const PodcastsPage = (props) => {
-  const [onePodImg, setOnePodImg] = useState([]);
+  //  const [onePodImg, setOnePodImg] = useState([]);
   const [podcast, setPodcast] = useState();
+  const [episodes, setEpisodes] = useState();
 
   const getEachPod = () => {
     console.log("props param", props.match.params);
@@ -16,8 +20,12 @@ const PodcastsPage = (props) => {
       })
       .then((result) => {
         console.log(result);
+        console.log(result.body);
+        console.log(result.body.episodes);
         setPodcast(result.body);
-      });
+        setEpisodes(result.body.episodes);
+      })
+      .catch((error) => console.error(error));
   };
 
   const test = () => {
@@ -41,8 +49,32 @@ const PodcastsPage = (props) => {
           style={{ padding: "24px 0" }}>
           <Content style={{ padding: "0 24px", minHeight: 280 }}>
             {podcast && (
-              <PodDetailSection title={podcast.title} img={podcast.image} />
+              <ShowDetails
+                title={podcast.title}
+                description={podcast.description}
+                img={podcast.image}
+                publisher={podcast.publisher}
+                language={podcast.language}
+                total_episodes={podcast.total_episodes}
+              />
             )}
+            <h2>Episodes</h2>
+            {episodes &&
+              episodes.map((episode) => {
+                return (
+                  <>
+                    <h6>{episode.title}</h6>
+                    <EpisodeCard
+                      title={episode.title}
+                      thumbnail={episode.thumbnail}
+                      image={episode.image}
+                      description={episode.description}
+                    />
+                    <EllipsisText text={episode.description} length={"120"} />
+                    <Divider />
+                  </>
+                );
+              })}
           </Content>
         </Layout>
       </Content>

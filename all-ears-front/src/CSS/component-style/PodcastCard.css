@@ -1,0 +1,5 @@
+.card-element {
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+}

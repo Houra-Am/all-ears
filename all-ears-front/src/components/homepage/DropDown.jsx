@@ -34,6 +34,7 @@ export default function DropDown(props) {
   return (
     <Dropdown overlay={menu}>
       <a
+        href
         id='dropdown-select'
         className='ant-dropdown-link'
         onClick={(e) => e.preventDefault()}>
