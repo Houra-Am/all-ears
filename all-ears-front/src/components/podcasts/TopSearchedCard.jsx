@@ -1,9 +1,8 @@
 import { Card } from "antd";
-import EllipsisText from "react-ellipsis-text";
 
 const { Meta } = Card;
 
-const PodcastCard = (props) => {
+const TopSearchedCard = (props) => {
   return (
     <Card
       hoverable
@@ -21,4 +20,4 @@ const PodcastCard = (props) => {
   );
 };
 
-export default PodcastCard;
+export default TopSearchedCard;
