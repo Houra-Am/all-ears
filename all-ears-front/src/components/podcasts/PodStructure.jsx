@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Layout, Menu } from "antd";
-import { UserOutlined, LaptopOutlined } from "@ant-design/icons";
+import {
+  HomeOutlined,
+  CompassOutlined,
+  RocketOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 
 const { SubMenu } = Menu;
 const { Sider } = Layout;
@@ -14,12 +19,21 @@ const PodStructure = () => {
         defaultSelectedKeys={["1"]}
         defaultOpenKeys={["sub1"]}
         style={{ height: "100%", borderRight: 0 }}>
-        <SubMenu key='sub1' icon={<UserOutlined />} title='subnav 1'>
-          <Menu.Item key='1'>option1</Menu.Item>
-        </SubMenu>
-        <SubMenu key='sub2' icon={<LaptopOutlined />} title='subnav 2'>
-          <Menu.Item key='5'>option5</Menu.Item>
-        </SubMenu>
+        <Menu.Item key='sub1' icon={<HomeOutlined />} title='Home'>
+          <Link to='/'>Home</Link>
+        </Menu.Item>
+        <Menu.Item key='sub2' icon={<CompassOutlined />} title='Discover'>
+          <Link to='/podcasts/genre'>Discover</Link>
+        </Menu.Item>
+        <Menu.Item key='sub3' icon={<RocketOutlined />} title='Support'>
+          <Link to='/supportUs'> Support Us</Link>
+        </Menu.Item>
+        <Menu.Item key='sub4' icon={<UserOutlined />}>
+          <Link to='/login'>Login</Link>
+        </Menu.Item>
+        <Menu.Item key='sub5' icon={<UserOutlined />}>
+          <Link to='/signup'> Sign Up</Link>
+        </Menu.Item>
       </Menu>
     </Sider>
   );

@@ -2,7 +2,7 @@ import { Card } from "antd";
 
 const { Meta } = Card;
 
-const PodcastCard = (props) => {
+const TopSearchedCard = (props) => {
   return (
     <Card
       hoverable
@@ -20,4 +20,4 @@ const PodcastCard = (props) => {
   );
 };
 
-export default PodcastCard;
+export default TopSearchedCard;
