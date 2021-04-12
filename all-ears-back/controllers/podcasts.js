@@ -51,6 +51,13 @@ router.get("/podcasts/best/:id", async (req, res) => {
             console.log(req.query.page)
             const response = await listenNotesApi(`https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=${req.params.id}&page=${req.query.page}&region=us&safe_mode=0`)
             res.status(200).json(response)
+        } else if (req.query.number) { // Si non si le query params number est renseigné alors j'affiche le number de podcasts
+            let podcasts = [];
+            const response = await listenNotesApi(`https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=${req.params.id}&page=0&region=us&safe_mode=0`)
+            for (let i = 0; i < parseInt(req.query.number); i++) {
+                podcasts.push(response.body.podcasts[i])
+            }
+            res.json(podcasts)
         }
     } catch (err) {
         console.log(err)
