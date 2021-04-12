@@ -6,10 +6,10 @@ const layout = {
   labelCol: {
     span: 8,
   },
-  style:{
+  style: {
     marginTop: 10,
-    backgroundColor:"#d4f996",
-    color:"white",
+    backgroundColor: "#d4f996",
+    color: "white",
   },
   wrapperCol: {
     span: 14,
@@ -18,14 +18,17 @@ const layout = {
 
 
 export default function Signup() {
-   let history = useHistory();
-  const [imageUrl, setImage] = useState('')
+
+  let history = useHistory();
+
+  const [email, setEmail] = useState("")
+  const [userName, setUserName] = useState("")
+  const [password, setPassword] = useState("")
 
   const onFinish = async (data) => {
     try {
-  data.profilePicture = data.profilePicture.file.response.imageUrl;
       delete data.confirm_password;
-      // Tu peux changer la route
+      console.log("data =", data)
       const response = await fetch('http://localhost:8000/signup', {
         method: 'POST',
         headers: {
@@ -33,68 +36,21 @@ export default function Signup() {
         },
         body: JSON.stringify(data)
       });
+      console.log(response)
       if (response.ok) {
-        const tokenObj = await response.json();
-        // A réviser
-        localStorage.setItem('token', tokenObj.token);
-        history.push('/admin');
+        history.push('/login');
       }
     } catch (err) {
       console.error(err)
     }
   };
 
-  const uploadButton = (
-    <div>
-      <div style={{ marginTop: 8 }}>Upload</div>
-    </div>
-  );
-
-  function getBase64(img, callback) {
-    const reader = new FileReader();
-    reader.addEventListener('load', () => callback(reader.result));
-    reader.readAsDataURL(img);
-  }
-
-  const handleChange = info => {
-    if (info.file.status === 'done') {
-      console.log(info)
-      getBase64(info.file.originFileObj, imageUrl => setImage(imageUrl));
-    }
-  };
-  
-  const beforeUpload = (file) => {
-    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
-    if (!isJpgOrPng) {
-      console.error('You can only upload JPG/PNG file!');
-    }
-    const isLt2M = file.size / 1024 / 1024 < 2;
-    if (!isLt2M) {
-      console.error('Image must smaller than 2MB!');
-    }
-    return isJpgOrPng && isLt2M;
-  }
-  
   return (
     <Form
       {...layout}
       name="basic"
       onFinish={onFinish}
     >
-      <Form.Item label="Profile image"
-        name="profile_img" >
-        <Upload
-          name="profile_img"
-          listType="picture-card"
-          beforeUpload={beforeUpload}
-          showUploadList={false}
-          // A réviser !!!
-          action="http://localhost:8000/upload"
-          onChange={handleChange}
-        >
-          {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
-        </Upload>
-      </Form.Item>
 
       <Form.Item
         label="Email"
@@ -112,7 +68,7 @@ export default function Signup() {
       <Form.Item
         label="User Name"
         name="username"
-        style={{color:"white"}}
+        style={{ color: "white" }}
         rules={[
           {
             required: true,

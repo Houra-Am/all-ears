@@ -17,7 +17,7 @@ export default function Login() {
   const onFinish = async (data) => {
     try {
       console.log("Received values of form: ", data);
-      const response = await fetch("http://localhost:8000/auth/login", {
+      const response = await fetch("http://localhost:8000/login", {
         method: "POST",
         headers: {
           "content-type": "application/json",
