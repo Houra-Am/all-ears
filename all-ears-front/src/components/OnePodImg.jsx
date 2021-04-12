@@ -1,6 +1,6 @@
 import { Card } from "antd";
 
-const OnePodThumbnail = (props) => {
+const OnePodImg = (props) => {
   return (
     <div>
       <Card
@@ -11,4 +11,4 @@ const OnePodThumbnail = (props) => {
   );
 };
 
-export default OnePodThumbnail;
+export default OnePodImg;

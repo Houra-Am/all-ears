@@ -1,25 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { Layout, Menu, Breadcrumb } from "antd";
-import OnePodThumbnail from "../components/OnePodThumbnail";
-const { SubMenu } = Menu;
+import { Layout, Breadcrumb } from "antd";
+import PodDetailSection from "../components/PodPage/PodDetailSection";
 const { Content } = Layout;
 
 const PodcastsPage = (props) => {
   const [onePodImg, setOnePodImg] = useState([]);
+  const [podcast, setPodcast] = useState();
 
   const getEachPod = () => {
-    fetch("http://localhost:8000/podcasts/8f1d7016296040e689b4cd9982ee92c8")
-      //should change the id
+    console.log("props param", props.match.params);
+    const apiUrl = `http://localhost:8000/podcasts/${props.match.params.id}`;
+    fetch(apiUrl)
       .then((response) => {
         return response.json();
       })
       .then((result) => {
         console.log(result);
-        setOnePodImg([result.body.image]);
+        setPodcast(result.body);
       });
   };
 
+  const test = () => {
+    console.log("coucou");
+  };
+
   useEffect(() => {
+    test();
     getEachPod();
   }, []);
 
@@ -34,10 +40,9 @@ const PodcastsPage = (props) => {
           className='site-layout-background'
           style={{ padding: "24px 0" }}>
           <Content style={{ padding: "0 24px", minHeight: 280 }}>
-            <OnePodThumbnail
-              className='podcasts-thumbnail'
-              image={onePodImg}
-              hoverable></OnePodThumbnail>
+            {podcast && (
+              <PodDetailSection title={podcast.title} img={podcast.image} />
+            )}
           </Content>
         </Layout>
       </Content>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card} from "antd";
 import { HeartTwoTone, PlayCircleOutlined } from '@ant-design/icons';
+import "antd/dist/antd.css";
 
 
 const PodcastDetails = () => {
@@ -15,6 +16,7 @@ const PodcastDetails = () => {
                          cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
                          >
                     </Card>
+                   
                  </div>  
              </div>
                  
@@ -29,19 +31,19 @@ const PodcastDetails = () => {
                         </p>
                     </div>
                     
-                    {/* <i class="far fa-heart"></i> */}
-                    <HeartTwoTone />
+                    <i class="far fa-heart fa-1x"></i>
+                    {/* <HeartTwoTone /> */}
                       
              </div>
-             <div className=" col">
-                  <div> 
-                    <i class="fas fa-play-circle 7x"></i>
+             <div className="col">
+                
+                    <i class="fas fa-play-circle fa-2x"></i>
                     {/* <PlayCircleOutlined 
                     style={{
                     width: 50,
                     height: 50
                 }}/> */}
-                  </div> 
+                  
              </div>
             </div>
         </div>
