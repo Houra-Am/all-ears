@@ -1,5 +1,4 @@
 import { Card } from "antd";
-import EllipsisText from "react-ellipsis-text";
 
 const { Meta } = Card;
 
