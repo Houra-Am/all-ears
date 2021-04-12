@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {Link} from "react-router-dom";
 import { Row, Col, Button, Layout } from "antd";
 import Thumbnail from "../../components/homepage/Thumbnail";
 const { Content } = Layout;
@@ -35,9 +36,11 @@ const HomeBottom = () => {
             Useless to say! You can listen to your favorite podcast or find your
             new passion anytime, anywhere.
           </p>
-          <Button className='listen-now' htmlType='submit' type='primary'>
-            LISTEN NOW
-          </Button>
+          <Link to='/podcasts/genre/127'>
+            <Button  className='listen-now' htmlType='submit' type='primary'>
+              LISTEN NOW
+            </Button>
+            </Link>
         </Col>
         <Col span={4}>
           {podcastThumbnail && (
