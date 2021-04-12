@@ -2,7 +2,6 @@ const express = require("express");
 const unirest = require("unirest")
 const router = express.Router();
 const PodcastsLikes = require("../models/podcasts_likes")
-const jwt = require("jsonwebtoken")
 const userConnected = require("../middlewares/authentification")
 
 async function listenNotesApi(url) {
@@ -29,16 +28,6 @@ router.post("/podcasts/like/:id", userConnected, async (req, res) => {
     }
 })
 
-// Avoir 1 podcasts aleatoire
-router.get("/podcasts/random", async (req, res) => {
-    try {
-        const response = await listenNotesApi("https://listen-api.listennotes.com/api/v2/just_listen")
-        res.status(200).json(response)
-    } catch (err) {
-        console.log(err)
-    }
-})
-
 
 // Avoir les meilleurs podcasts d'un genre avec l'ID du genre avec la page /podcasts/best/:id?page=1
 router.get("/podcasts/best/:id", async (req, res) => {
@@ -51,13 +40,15 @@ router.get("/podcasts/best/:id", async (req, res) => {
             console.log(req.query.page)
             const response = await listenNotesApi(`https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=${req.params.id}&page=${req.query.page}&region=us&safe_mode=0`)
             res.status(200).json(response)
+            return;
         } else if (req.query.number) { // Si non si le query params number est renseigné alors j'affiche le number de podcasts
             let podcasts = [];
             const response = await listenNotesApi(`https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=${req.params.id}&page=0&region=us&safe_mode=0`)
             for (let i = 0; i < parseInt(req.query.number); i++) {
                 podcasts.push(response.body.podcasts[i])
             }
-            res.json(podcasts)
+            res.status(200).json(podcasts)
+            return;
         }
     } catch (err) {
         console.log(err)
@@ -65,6 +56,39 @@ router.get("/podcasts/best/:id", async (req, res) => {
             status: 404,
             message: "Podcasts not found"
         })
+    }
+})
+
+
+// Rechercher des podcasts => /podcasts/search/TEXT/PAGE (prend en compte les espace)
+router.get("/podcasts/search/:string/:page", async (req, res) => {
+    try {
+        let page = req.params.page * 10;
+        const regex = /\s/g;
+        let string = req.params.string.replace(regex, "%20");
+        const response = await listenNotesApi(`https://listen-api.listennotes.com/api/v2/search?q=${string}&sort_by_date=0&type=episode&offset=${page}&len_min=10&len_max=30&genre_ids=68%2C82&published_before=1580172454000&published_after=0&only_in=title%2Cdescription&language=English&safe_mode=0`)
+        if (response.body.count === 0) {
+            res.status(404).json({
+                status: 404,
+                message: "Podcast not found"
+            })
+            return
+        } else {
+            res.status(200).json(response)
+            return;
+        }
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+// Avoir 1 podcasts aleatoire
+router.get("/podcasts/random", async (req, res) => {
+    try {
+        const response = await listenNotesApi("https://listen-api.listennotes.com/api/v2/just_listen")
+        res.status(200).json(response)
+    } catch (err) {
+        console.log(err)
     }
 })
 

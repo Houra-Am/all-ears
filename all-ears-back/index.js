@@ -6,6 +6,7 @@ require('dotenv').config()
 const sequelize = require("./services/sequelize")
 const podcastsRoute = require("./controllers/podcasts")
 const AuthRoute = require("./controllers/auth")
+const UserRoute = require("./controllers/user")
 const app = express();
 
 app.use(cors())
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(AuthRoute)
 app.use(podcastsRoute)
+app.use(UserRoute)
 
 app.listen(8000, () => {
     console.log("Express server on, port", process.env.EXPRESS_PORT)
