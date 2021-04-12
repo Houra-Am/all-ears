@@ -1,4 +1,7 @@
 import React from "react";
+import { EmailShareButton,
+  FacebookShareButton,}from "react-share";
+import {EmailIcon}from "react-share";
 import { Card, Divider, Button, Col, Row } from "antd";
 import {
   ShareAltOutlined,
@@ -7,6 +10,7 @@ import {
   InstagramFilled,
   TwitterSquareFilled,
 } from "@ant-design/icons";
+
 
 const ShowDetails = (props) => {
   return (
@@ -23,11 +27,18 @@ const ShowDetails = (props) => {
             <Divider />
             <p>Language: {props.language} </p>
             <p>Episodes: {props.total_episodes}</p>
+            {/* <EmailIcon size={32} round={true} /> */}
             <Button icon={<ShareAltOutlined />}>Share</Button>
             <Button icon={<PlusOutlined />}>Follow</Button>
-            <TwitterSquareFilled />
-            <FacebookFilled />
-            <InstagramFilled />
+            <Button type="link" href="https://twitter.com/twitter/">
+              <TwitterSquareFilled />
+            </Button>
+            <Button type="link" href="https://www.facebook.com/facebook/">
+              <FacebookFilled />
+            </Button>
+            <Button type="link" href="https://www.instagram.com/home/">
+              <InstagramFilled />
+            </Button>
           </Card>
         </Col>
         <Col span={16}>

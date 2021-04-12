@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import { Layout, Card, Row, Col, Button } from "antd";
 import "../../css/component-style/DropDown.css";
 import imagination from "../../image/imagination.png";
@@ -40,9 +41,11 @@ const HomeMiddleSection = () => {
                   optionThree: "Drive",
                 }}></DropDown>
             </h1>
-            <Button className='listen-now' htmlType='submit' type='primary'>
+            <Link to='/podcasts/genre/127'>
+            <Button  className='listen-now' htmlType='submit' type='primary'>
               LISTEN NOW
             </Button>
+            </Link>
           </Col>
         </Row>
       </Content>
