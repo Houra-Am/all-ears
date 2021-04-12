@@ -1,9 +1,7 @@
 import React from "react";
 import { Layout, Card, Row, Col, Button } from "antd";
-import "../css/Home.css";
-import head from "../image/head.png";
+import head from "../../image/head.png";
 const { Content } = Layout;
-const { Meta } = Card;
 
 const HomeBanner = () => {
   return (

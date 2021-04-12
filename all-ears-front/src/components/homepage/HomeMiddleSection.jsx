@@ -1,8 +1,8 @@
 import React from "react";
 import { Layout, Card, Row, Col, Button } from "antd";
-import "../css/Home.css";
-import imagination from "../image/imagination.png";
-import DropDown from "../components/DropDown";
+import "../../css/component-style/DropDown.css";
+import imagination from "../../image/imagination.png";
+import DropDown from "./DropDown";
 const { Content } = Layout;
 
 const HomeMiddleSection = () => {

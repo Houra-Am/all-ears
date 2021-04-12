@@ -2,20 +2,21 @@ import "../css/Footer.css";
 const Footer = () => {
   return (
     <footer>
-      <div className='container-fluid footer'>
-        <div className='row'>
-          <div className='col-12 col-md-4'>
+      ../
+      <div className='con../tainer-fluid footer'>
+        <div className='ro../w'>
+          <div className='co../l-12 col-md-4'>
             <h3>ALL EARS</h3>
 
             <div className='section social-icons'>
               <ul>
                 <li>
-                  <a href='#' className='social-icon'>
+                  <a href className='social-icon'>
                     <i class='fab fa-app-store'></i>
                   </a>
                 </li>
                 <li>
-                  <a href='#' className='social-icon'>
+                  <a href className='social-icon'>
                     <i class='fab fa-google-play'></i>
                   </a>
                 </li>
@@ -30,22 +31,22 @@ const Footer = () => {
               <h4>Connect</h4>
               <ul>
                 <li>
-                  <a href='#' className='social-icon'>
+                  <a href className='social-icon'>
                     <i className='fab fa-facebook'></i>
                   </a>
                 </li>
                 <li>
-                  <a href='#' className='social-icon'>
+                  <a href className='social-icon'>
                     <i className='fab fa-instagram'></i>
                   </a>
                 </li>
                 <li>
-                  <a href='#' className='social-icon'>
+                  <a href className='social-icon'>
                     <i className='fab fa-youtube'></i>
                   </a>
                 </li>
                 <li>
-                  <a href='#' className='social-icon'>
+                  <a href className='social-icon'>
                     <i className='fab fa-twitter'></i>
                   </a>
                 </li>
