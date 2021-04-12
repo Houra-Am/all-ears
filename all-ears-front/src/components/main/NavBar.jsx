@@ -12,7 +12,7 @@ import YourLib from "../../views/YourLib";
 export default function NavBar(props) {
   return (
     <BrowserRouter>
-      <Menu theme='dark' mode='horizontal' defaultSelectedKeys={["2"]}>
+      <Menu theme='dark' mode='horizontal' defaultSelectedKeys={["1"]}>
         <Menu.Item key='1'>
           <Link to='/'>All Ears</Link>
         </Menu.Item>
