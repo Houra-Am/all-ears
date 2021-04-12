@@ -5,6 +5,7 @@ import "../../css/component-style/TopicTags.css";
 
 const TopicTags = (props) => {
   const [topics, setTopics] = useState();
+  const [genres, setGenres] = useState();
 
   const getTopics = (props) => {
     const apiUrl = `http://localhost:8000/podcasts/genres?best=true`;
@@ -14,7 +15,9 @@ const TopicTags = (props) => {
       })
       .then((result) => {
         console.log(result);
+        console.log("genres: ", result.body.genres);
         setTopics(result.body);
+        setGenres(result.body.genres);
       })
       .catch((error) => console.error(error));
   };
@@ -24,9 +27,16 @@ const TopicTags = (props) => {
   }, []);
 
   return (
-    <div className='site-button-ghost-wrapper'>
-      <Button ghost>Ghost</Button>
-    </div>
+    <>
+      {genres &&
+        genres.map((genre) => {
+          return (
+            <div className='category' type='primary'>
+              <Button>{genre.name}</Button>
+            </div>
+          );
+        })}
+    </>
   );
 };
 

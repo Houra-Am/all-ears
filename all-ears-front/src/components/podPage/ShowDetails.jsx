@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Card, Divider, Button, Col, Row } from "antd";
 import {
   ShareAltOutlined,
@@ -25,9 +26,15 @@ const ShowDetails = (props) => {
             <p>Episodes: {props.total_episodes}</p>
             <Button icon={<ShareAltOutlined />}>Share</Button>
             <Button icon={<PlusOutlined />}>Follow</Button>
-            <TwitterSquareFilled />
-            <FacebookFilled />
-            <InstagramFilled />
+            <Button type='link' href='https://twitter.com/twitter/'>
+              <TwitterSquareFilled />
+            </Button>
+            <Button type='link' href='https://www.facebook.com/facebook/'>
+              <FacebookFilled />
+            </Button>
+            <Button type='link' href='https://www.instagram.com/home/'>
+              <InstagramFilled />
+            </Button>
           </Card>
         </Col>
         <Col span={16}>
