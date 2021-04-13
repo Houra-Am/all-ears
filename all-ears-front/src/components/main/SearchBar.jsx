@@ -1,5 +1,6 @@
 import React from "react";
 import { Input } from "antd";
+import "../../css/main-style/SearchBar.css";
 
 const { Search } = Input;
 

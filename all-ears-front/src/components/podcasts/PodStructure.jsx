@@ -9,7 +9,7 @@ import {
 } from "@ant-design/icons";
 
 const { SubMenu } = Menu;
-const { Sider } = Layout;
+const { Sider, Header } = Layout;
 
 const PodStructure = () => {
   return (

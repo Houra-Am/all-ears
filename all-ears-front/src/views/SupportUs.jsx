@@ -1,4 +1,6 @@
 import React from "react";
+import "../css/main-style/NavBar.css";
+import "../css/main-style/SearchBar.css";
 
 const SupportUs = () => {
   return (

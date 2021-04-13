@@ -8,6 +8,7 @@ import Login from "../../views/Login";
 import SupportUs from "../../views/SupportUs";
 import PodcastPage from "../../views/PodcastPage";
 import YourLib from "../../views/YourLib";
+import SearchPage from "../../views/SearchPage";
 import SearchBar from "./SearchBar";
 import "../../css/main-style/NavBar.css";
 
@@ -19,7 +20,7 @@ export default function NavBar(props) {
       <Layout className='layout'>
         <Header>
           <div className='logo' />
-          <div className='search-bar mt-3'>
+          <div className='searchBarPos'>
             <SearchBar />
           </div>
           <Menu theme='dark' mode='horizontal' defaultSelectedKeys={["1"]}>
@@ -44,6 +45,7 @@ export default function NavBar(props) {
         <Route path='/login' component={Login} />
         <Route path='/admin' component={PodcastPage} />
         <Route path='/library' component={YourLib} />
+        <Route path='/search' component={SearchPage} />
         <Route exact path='/supportUs' component={SupportUs} />
       </Switch>
     </BrowserRouter>
