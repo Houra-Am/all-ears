@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
-import { Menu } from "antd";
+import { Layout, Menu } from "antd";
 import Home from "../../views/Home";
 import Podcasts from "../../views/Podcasts";
 import Signup from "../../views/Signup";
@@ -8,21 +8,33 @@ import Login from "../../views/Login";
 import SupportUs from "../../views/SupportUs";
 import PodcastPage from "../../views/PodcastPage";
 import YourLib from "../../views/YourLib";
+import SearchBar from "./SearchBar";
+import "../../css/main-style/NavBar.css";
+
+const { Header } = Layout;
 
 export default function NavBar(props) {
   return (
     <BrowserRouter>
-      <Menu theme='dark' mode='horizontal' defaultSelectedKeys={["1"]}>
-        <Menu.Item key='1'>
-          <Link to='/'>All Ears</Link>
-        </Menu.Item>
-        <Menu.Item key='2'>
-          <Link to='/podcasts/genre/144'>Podcasts</Link>
-        </Menu.Item>
-        <Menu.Item key='3'>
-          <Link to='/supportUs'>Support Us</Link>
-        </Menu.Item>
-      </Menu>
+      <Layout className='layout'>
+        <Header>
+          <div className='logo' />
+          <div className='search-bar mt-3'>
+            <SearchBar />
+          </div>
+          <Menu theme='dark' mode='horizontal' defaultSelectedKeys={["1"]}>
+            <Menu.Item key='1'>
+              <Link to='/'>All Ears</Link>
+            </Menu.Item>
+            <Menu.Item key='2'>
+              <Link to='/podcasts/genre/144'>Podcasts</Link>
+            </Menu.Item>
+            <Menu.Item key='3'>
+              <Link to='/supportUs'>Support Us</Link>
+            </Menu.Item>
+          </Menu>
+        </Header>
+      </Layout>
 
       <Switch>
         <Route exact path='/' component={Home} />
