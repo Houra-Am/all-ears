@@ -45,7 +45,7 @@ export default function NavBar(props) {
         <Route path='/login' component={Login} />
         <Route path='/admin' component={PodcastPage} />
         <Route path='/library' component={YourLib} />
-        <Route path='/search' component={SearchPage} />
+        <Route exact path='/search/:string' component={SearchPage} />
         <Route exact path='/supportUs' component={SupportUs} />
       </Switch>
     </BrowserRouter>

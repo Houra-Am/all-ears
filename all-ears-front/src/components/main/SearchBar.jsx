@@ -1,12 +1,17 @@
 import React from "react";
 import { Input } from "antd";
-import "../../css/main-style/SearchBar.css";
+import { useHistory } from "react-router-dom";
 
 const { Search } = Input;
 
-const onSearch = (value) => console.log(value);
-
 const SearchBar = () => {
+
+  let history = useHistory();
+
+  const onSearch = (value) => {
+    history.push(`/search/${value}`)
+  };
+
   return (
     <div>
       <Search
