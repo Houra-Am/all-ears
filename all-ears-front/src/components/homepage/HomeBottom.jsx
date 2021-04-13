@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Row, Col, Button, Layout } from "antd";
 import Thumbnail from "../../components/homepage/Thumbnail";
 const { Content } = Layout;
 
 const HomeBottom = () => {
-  const [podcastThumbnail, setPodcastThumbnail] = useState([]);
+  const [podcastThumbnail, setPodcastThumbnail] = useState();
 
   const getRandomPodcast = () => {
-    fetch("http://localhost:8000/podcasts/random")
+    fetch("http://localhost:8000/podcasts/best/144?number=6")
       .then((response) => {
         return response.json();
       })
-      .then((result) => {
-        setPodcastThumbnail([result.body.image]);
-      });
+      .then((results) => {
+        console.log("result of 6 random pod:", results);
+        setPodcastThumbnail(results);
+      })
+      .catch((error) => console.error(error));
   };
 
   useEffect(() => {
@@ -37,52 +39,22 @@ const HomeBottom = () => {
             new passion anytime, anywhere.
           </p>
           <Link to='/podcasts/genre/127'>
-            <Button  className='listen-now' htmlType='submit' type='primary'>
+            <Button className='listen-now' htmlType='submit' type='primary'>
               LISTEN NOW
             </Button>
-            </Link>
+          </Link>
         </Col>
+
         <Col span={4}>
-          {podcastThumbnail && (
-            <Thumbnail
-              className='podcast-thumbnail'
-              image={podcastThumbnail}
-              hoverable></Thumbnail>
-          )}
-          {podcastThumbnail && (
-            <Thumbnail
-              className='podcast-thumbnail'
-              image={podcastThumbnail}
-              hoverable></Thumbnail>
-          )}
-        </Col>
-        <Col span={4}>
-          {podcastThumbnail && (
-            <Thumbnail
-              className='podcast-thumbnail'
-              image={podcastThumbnail}
-              hoverable></Thumbnail>
-          )}
-          {podcastThumbnail && (
-            <Thumbnail
-              className='podcast-thumbnail'
-              image={podcastThumbnail}
-              hoverable></Thumbnail>
-          )}
-        </Col>
-        <Col span={4}>
-          {podcastThumbnail && (
-            <Thumbnail
-              className='podcast-thumbnail'
-              image={podcastThumbnail}
-              hoverable></Thumbnail>
-          )}
-          {podcastThumbnail && (
-            <Thumbnail
-              className='podcast-thumbnail'
-              image={podcastThumbnail}
-              hoverable></Thumbnail>
-          )}
+          {podcastThumbnail &&
+            podcastThumbnail.map((podThumb) => {
+              return (
+                <Thumbnail
+                  className='podcast-thumbnail'
+                  thumbnail={podThumb.thumbnail}
+                  hoverable></Thumbnail>
+              );
+            })}
         </Col>
       </Row>
     </Content>
