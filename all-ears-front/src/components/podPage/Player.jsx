@@ -1,5 +1,5 @@
 import React from "react";
-import ReactWebMediaPlayer from "react-web-media-player";
+// import ReactWebMediaPlayer from "react-web-media-player";
 
 const Player = (props) => {
   return (
