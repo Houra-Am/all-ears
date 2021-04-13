@@ -6,7 +6,7 @@ const Thumbnail = (props) => {
       <Card
         hoverable
         style={{ width: 100, height: 100, borderRadius: 15 }}
-        cover={<img alt='example' src={props.image} />}></Card>
+        cover={<img alt='example' src={props.thumbnail} />}></Card>
     </div>
   );
 };

@@ -32,7 +32,7 @@ const Podcasts = (props) => {
 
   useEffect(() => {
     getPodInfo();
-  }, []);
+  }, [props.match.params.id]);
 
   return (
     <div>
