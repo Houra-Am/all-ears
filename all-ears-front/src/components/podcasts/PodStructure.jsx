@@ -9,7 +9,7 @@ import {
 } from "@ant-design/icons";
 
 const { SubMenu } = Menu;
-const { Sider } = Layout;
+const { Sider, Header } = Layout;
 
 const PodStructure = () => {
   return (
@@ -26,13 +26,13 @@ const PodStructure = () => {
           <Link to='/podcasts/genre'>Discover</Link>
         </Menu.Item>
         <Menu.Item key='sub3' icon={<RocketOutlined />} title='Support'>
-          <Link to='/supportUs'> Support Us</Link>
+          <Link to='/supportUs'>Support Us</Link>
         </Menu.Item>
         <Menu.Item key='sub4' icon={<UserOutlined />}>
           <Link to='/login'>Login</Link>
         </Menu.Item>
         <Menu.Item key='sub5' icon={<UserOutlined />}>
-          <Link to='/signup'> Sign Up</Link>
+          <Link to='/signup'>Sign Up</Link>
         </Menu.Item>
       </Menu>
     </Sider>

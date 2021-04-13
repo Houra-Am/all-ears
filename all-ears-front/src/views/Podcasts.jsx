@@ -32,7 +32,7 @@ const Podcasts = (props) => {
 
   useEffect(() => {
     getPodInfo();
-  }, []);
+  }, [props.match.params.id]);
 
   return (
     <div>
@@ -49,6 +49,7 @@ const Podcasts = (props) => {
               </Link>
             </div>
           </Breadcrumb>
+
           <CarouselBanner />
 
           {/* Top Searched podcasts */}

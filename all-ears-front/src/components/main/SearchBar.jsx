@@ -1,0 +1,26 @@
+import React from "react";
+import { Input } from "antd";
+import { useHistory } from "react-router-dom";
+
+const { Search } = Input;
+
+const SearchBar = () => {
+
+  let history = useHistory();
+
+  const onSearch = (value) => {
+    history.push(`/search/${value}`)
+  };
+
+  return (
+    <div>
+      <Search
+        placeholder='input search text'
+        onSearch={onSearch}
+        style={{ width: 200 }}
+      />
+    </div>
+  );
+};
+
+export default SearchBar;

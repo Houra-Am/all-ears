@@ -1,4 +1,81 @@
 .category {
-  padding: 20px 10px 10px;
+  padding: 8px;
   border: none;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  cursor: pointer;
+}
+
+#categoryBtn:hover {
+  background-color: #212f45;
+}
+
+.cat-0 {
+  background-color: #b7094c;
+}
+.cat-1 {
+  background-color: #a01a58;
+}
+.cat-2 {
+  background-color: #892b64;
+}
+.cat-3 {
+  background-color: #723c70;
+}
+.cat-4 {
+  background-color: #5c4d7d;
+}
+.cat-5 {
+  background-color: #455e89;
+}
+.cat-6 {
+  background-color: #2e6f95;
+}
+.cat-7 {
+  background-color: #1780a1;
+}
+.cat-8 {
+  background-color: #0091ad;
+}
+.cat-9 {
+  background-color: #006466;
+}
+.cat-10 {
+  background-color: #065a60;
+}
+
+.cat-11 {
+  background-color: #0b525b;
+}
+.cat-12 {
+  background-color: #144552;
+}
+.cat-13 {
+  background-color: #1b4a4b;
+}
+.cat-14 {
+  background-color: #273850;
+}
+.cat-15 {
+  background-color: #302f50;
+}
+.cat-16 {
+  background-color: #312244;
+}
+.cat-17 {
+  background-color: #3e1f47;
+}
+.cat-18 {
+  background-color: #4d194d;
+}
+.cat-19 {
+  background-color: #3e1f47;
+}
+.cat-20 {
+  background-color: #de6952;
 }

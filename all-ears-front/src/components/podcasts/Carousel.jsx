@@ -19,7 +19,7 @@ const CarouselBanner = (props) => {
       <Card title='Listen Now'>
         <Carousel afterChange={onChange}>
           <div>
-            <h3 style={contentStyle}>{props.image}</h3>
+            <h3 style={contentStyle}>1</h3>
           </div>
           <div>
             <h3 style={contentStyle}>2</h3>
