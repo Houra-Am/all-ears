@@ -38,7 +38,7 @@ const ShowDetails = (props) => {
           </Card>
         </Col>
         <Col span={16}>
-          <p>{props.description}</p>
+          <div dangerouslySetInnerHTML={{ __html: props.description }}></div>
         </Col>
       </Row>
     </div>
