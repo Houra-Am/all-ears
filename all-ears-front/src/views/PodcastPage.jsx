@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Layout, Breadcrumb, Divider } from "antd";
 import ShowDetails from "../components/podPage/ShowDetails";
 import EpisodeCard from "../components/podPage/EpisodeCard";
+import Player from "../components/podPage/Player";
 import EllipsisText from "react-ellipsis-text";
 
 const { Content } = Layout;
@@ -64,6 +65,7 @@ const PodcastsPage = (props) => {
                 return (
                   <>
                     <h6>{episode.title}</h6>
+                    <Player />
                     <EpisodeCard
                       title={episode.title}
                       thumbnail={episode.thumbnail}
@@ -71,6 +73,7 @@ const PodcastsPage = (props) => {
                       description={episode.description}
                     />
                     <EllipsisText text={episode.description} length={"120"} />
+
                     <Divider />
                   </>
                 );

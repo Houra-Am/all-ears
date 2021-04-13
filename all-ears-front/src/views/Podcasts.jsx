@@ -49,6 +49,7 @@ const Podcasts = (props) => {
               </Link>
             </div>
           </Breadcrumb>
+
           <CarouselBanner />
 
           {/* Top Searched podcasts */}
