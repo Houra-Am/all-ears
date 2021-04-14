@@ -67,7 +67,6 @@ const PodcastsPage = (props) => {
                 return (
                   <>
                     <h6>{episode.title}</h6>
-
                     <Player
                       audio={episode.audio}
                       thumbnail={episode.thumbnail}
@@ -78,12 +77,10 @@ const PodcastsPage = (props) => {
                       image={episode.image}
                       description={episode.description}
                     />
-
                     <div
                       dangerouslySetInnerHTML={{
                         __html: episode.description,
                       }}></div>
-
                     <Divider />
                   </>
                 );

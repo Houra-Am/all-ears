@@ -38,7 +38,7 @@ export default function DropDown(props) {
         id='dropdown-select'
         className='ant-dropdown-link'
         onClick={(e) => e.preventDefault()}>
-        select <DownOutlined />
+        {props.text} <DownOutlined />
       </a>
     </Dropdown>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-// import ReactWebMediaPlayer from "react-web-media-player";
+import ReactWebMediaPlayer from "react-web-media-player";
 
 const Player = (props) => {
   return (
@@ -7,8 +7,8 @@ const Player = (props) => {
       audio={props.audio}
       thumbnail={props.thumbnail}
       color='#912654'
-      height={50}
-      width={50}
+      height={90}
+      width={90}
     />
   );
 };

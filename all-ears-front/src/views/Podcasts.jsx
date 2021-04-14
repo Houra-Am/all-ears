@@ -17,7 +17,7 @@ const Podcasts = (props) => {
   const [podcasts, setPodcasts] = useState();
 
   const getPodInfo = () => {
-    const url = `http://localhost:8000/podcasts/best/${props.match.params.id}`;
+    const url = `http://localhost:8000/podcasts/best/${props.match.params.id}?page=2`;
     fetch(url)
       .then((response) => {
         return response.json();
