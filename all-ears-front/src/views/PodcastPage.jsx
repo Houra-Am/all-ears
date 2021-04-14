@@ -20,23 +20,15 @@ const PodcastsPage = (props) => {
         return response.json();
       })
       .then((result) => {
-        console.log(result);
-        console.log(result.body);
-        console.log(result.body.episodes);
         setPodcast(result.body);
         setEpisodes(result.body.episodes);
       })
       .catch((error) => console.error(error));
   };
 
-  const test = () => {
-    console.log("coucou");
-  };
-
   useEffect(() => {
-    test();
     getEachPod();
-  }, []);
+  }, [props.match.params.string]);
 
   return (
     <Layout>
@@ -45,6 +37,7 @@ const PodcastsPage = (props) => {
           <Breadcrumb.Item>Home</Breadcrumb.Item>
           <Breadcrumb.Item>App</Breadcrumb.Item>
         </Breadcrumb>
+
         <Layout
           className='site-layout-background'
           style={{ padding: "24px 0" }}>
@@ -59,20 +52,29 @@ const PodcastsPage = (props) => {
                 total_episodes={podcast.total_episodes}
               />
             )}
+
             <h2>Episodes</h2>
             {episodes &&
               episodes.map((episode) => {
                 return (
                   <>
                     <h6>{episode.title}</h6>
-                    <Player />
+
+                    <Player
+                      audio={episode.audio}
+                      thumbnail={episode.thumbnail}
+                    />
                     <EpisodeCard
                       title={episode.title}
                       thumbnail={episode.thumbnail}
                       image={episode.image}
                       description={episode.description}
                     />
-                    <EllipsisText text={episode.description} length={"120"} />
+
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: episode.description,
+                      }}></div>
 
                     <Divider />
                   </>
@@ -86,3 +88,5 @@ const PodcastsPage = (props) => {
 };
 
 export default PodcastsPage;
+
+/* dangerouslySetInnerHTML={{ __html: props.description }} */

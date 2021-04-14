@@ -11,7 +11,6 @@ const SearchPage = (props) => {
         return response.json()
       })
       .then((response) => {
-        console.log(response.body.results)
         setPodcasts(response.body.results)
       })
   }

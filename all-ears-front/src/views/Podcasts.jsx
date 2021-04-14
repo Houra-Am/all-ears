@@ -4,11 +4,10 @@ import { Link } from "react-router-dom";
 import { FaHeadphonesAlt } from "react-icons/fa";
 import { MdLibraryMusic } from "react-icons/md";
 import PodStructure from "../components/podcasts/PodStructure";
-import CarouselBanner from "../components/podcasts/Carousel";
+import CarouselBanner from "../components/podcasts/CarouselBanner";
 import TopSearchedCard from "../components/podcasts/TopSearchedCard";
 import BestPods from "../components/podcasts/BestPods";
 import TopicTags from "../components/podcasts/TopicTags";
-
 import "../css/view-style/Podcasts.css";
 
 const { Content } = Layout;
@@ -39,6 +38,7 @@ const Podcasts = (props) => {
       <Layout>
         <PodStructure />
         <Layout style={{ padding: "0 24px 24px" }}>
+          {/* Breadcrumb */}
           <Breadcrumb style={{ margin: "16px 0" }}>
             <div className='demo-nav'>
               <Link to='/'>
@@ -50,7 +50,8 @@ const Podcasts = (props) => {
             </div>
           </Breadcrumb>
 
-          <CarouselBanner />
+          {/* Carousel */}
+          <>{podcasts && <CarouselBanner podcasts={podcasts} />}</>
 
           {/* Top Searched podcasts */}
           <Card>
@@ -75,7 +76,6 @@ const Podcasts = (props) => {
               </Row>
             </Card>
           </Card>
-
           {/* Popular podcasts */}
           <Card>
             <Card type='inner' title='Popular Podcasts'>
@@ -99,7 +99,7 @@ const Podcasts = (props) => {
               </Row>
             </Card>
           </Card>
-
+          {/* Topic Tags */}
           <Card>
             <Card type='inner' title='Browse By Topic'>
               <Row>
