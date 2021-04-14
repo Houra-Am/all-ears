@@ -20,23 +20,15 @@ const PodcastsPage = (props) => {
         return response.json();
       })
       .then((result) => {
-        console.log(result);
-        console.log(result.body);
-        console.log(result.body.episodes);
         setPodcast(result.body);
         setEpisodes(result.body.episodes);
       })
       .catch((error) => console.error(error));
   };
 
-  const test = () => {
-    console.log("coucou");
-  };
-
   useEffect(() => {
-    test();
     getEachPod();
-  }, []);
+  }, [props.match.params.string]);
 
   return (
     <Layout>
