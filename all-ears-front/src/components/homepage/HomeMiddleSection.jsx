@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Layout, Card, Row, Col, Button } from "antd";
 import "../../css/component-style/DropDown.css";
 import imagination from "../../image/imagination.png";
@@ -28,6 +28,7 @@ const HomeMiddleSection = () => {
             <h1>
               I Want to Listen to{" "}
               <DropDown
+                text={"Tech"}
                 category={{
                   optionOne: "Star Wars",
                   optionTwo: "Tech Podcasts",
@@ -35,6 +36,7 @@ const HomeMiddleSection = () => {
                 }}></DropDown>{" "}
               While I{" "}
               <DropDown
+                text={"Running"}
                 category={{
                   optionOne: "Run",
                   optionTwo: "Do Laundry",
@@ -42,9 +44,9 @@ const HomeMiddleSection = () => {
                 }}></DropDown>
             </h1>
             <Link to='/podcasts/genre/127'>
-            <Button  className='listen-now' htmlType='submit' type='primary'>
-              LISTEN NOW
-            </Button>
+              <Button className='listen-now' htmlType='submit' type='primary'>
+                LISTEN NOW
+              </Button>
             </Link>
           </Col>
         </Row>
