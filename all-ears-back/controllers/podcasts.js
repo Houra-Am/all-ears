@@ -66,7 +66,7 @@ router.get("/podcasts/search/:string/:page", async (req, res) => {
         let page = req.params.page * 10;
         const regex = /\s/g;
         let string = req.params.string.replace(regex, "%20");
-        const response = await listenNotesApi(`https://listen-api.listennotes.com/api/v2/search?q=${string}&sort_by_date=0&type=episode&offset=${page}&len_min=10&len_max=30&genre_ids=68%2C82&published_before=1580172454000&published_after=0&only_in=title%2Cdescription&language=English&safe_mode=0`)
+        const response = await listenNotesApi(`https://listen-api.listennotes.com/api/v2/search?q=${string}&sort_by_date=0&type=podcast&offset=${page}&len_min=10&len_max=30&genre_ids=68%2C82&published_before=1580172454000&published_after=0&only_in=title%2Cdescription&language=English&safe_mode=0`)
         if (response.body.count === 0) {
             res.status(404).json({
                 status: 404,
