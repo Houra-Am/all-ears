@@ -22,6 +22,7 @@ const PodStructure = () => {
 
   const logout = () => {
     localStorage.clear();
+    window.location.reload();
   };
 
   return (

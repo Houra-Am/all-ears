@@ -10,22 +10,21 @@ import {
 } from "@ant-design/icons";
 
 const ShowDetails = (props) => {
-
   const likePodcast = () => {
-    console.log(props.match.params.id)
+    console.log(props.match.params.id);
     fetch(`http://localhost:8000/podcasts/like/${props.match.params.id}`, {
       method: "POST",
       headers: {
-        'Authorization': "Bearer " + localStorage.getItem('token'),
-      }
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
     })
       .then((response) => {
         return response.json();
       })
       .then((response) => {
-        console.log(response)
-      })
-  }
+        console.log(response);
+      });
+  };
 
   return (
     <div className='site-card-wrapper'>
@@ -41,8 +40,10 @@ const ShowDetails = (props) => {
             <Divider />
             <p>Language: {props.language} </p>
             <p>Episodes: {props.total_episodes}</p>
-            <Button icon={<ShareAltOutlined />}>Share</Button>
-            <Button onClick={props.onClick} icon={<PlusOutlined />}>Follow</Button>
+            {/* <Button icon={<ShareAltOutlined />}>Share</Button> */}
+            <Button onClick={props.onClick} icon={<PlusOutlined />}>
+              Add to library
+            </Button>
             <Button type='link' href='https://twitter.com/twitter/'>
               <TwitterSquareFilled />
             </Button>
