@@ -5,11 +5,10 @@ import { useHistory } from "react-router-dom";
 const { Search } = Input;
 
 const SearchBar = () => {
-
   let history = useHistory();
 
   const onSearch = (value) => {
-    history.push(`/search/${value}`)
+    history.push(`/search/${value}`);
   };
 
   return (
@@ -17,7 +16,7 @@ const SearchBar = () => {
       <Search
         placeholder='input search text'
         onSearch={onSearch}
-        style={{ width: 200 }}
+        style={{ width: 200, paddingTop: 10 }}
       />
     </div>
   );

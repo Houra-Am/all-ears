@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Layout, Breadcrumb, Divider } from "antd";
+import { Layout, Breadcrumb, Divider, Menu } from "antd";
+import { Link } from "react-router-dom";
 import ShowDetails from "../components/podPage/ShowDetails";
 import EpisodeCard from "../components/podPage/EpisodeCard";
 import Player from "../components/podPage/Player";
-import EllipsisText from "react-ellipsis-text";
+import HorizontalMenu from "../components/main/HorizontalMenu";
+/* import EllipsisText from "react-ellipsis-text"; */
 
-const { Content } = Layout;
+const { Content, Header } = Layout;
 
 const PodcastsPage = (props) => {
   //  const [onePodImg, setOnePodImg] = useState([]);
@@ -32,6 +34,7 @@ const PodcastsPage = (props) => {
 
   return (
     <Layout>
+      <HorizontalMenu />
       <Content style={{ padding: "0 50px" }}>
         <Breadcrumb style={{ margin: "16px 0" }}>
           <Breadcrumb.Item>Home</Breadcrumb.Item>

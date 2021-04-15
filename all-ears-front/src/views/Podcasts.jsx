@@ -14,6 +14,7 @@ const { Content } = Layout;
 const style = { padding: "30px 0", margin: "auto" };
 
 const Podcasts = (props) => {
+  const [resName, setResName] = useState();
   const [podcasts, setPodcasts] = useState();
 
   const getPodInfo = () => {
@@ -24,6 +25,9 @@ const Podcasts = (props) => {
       })
       .then((results) => {
         console.log("results", results.body);
+        console.log(resName);
+        console.log(results.body.name);
+        setResName(results.body);
         setPodcasts(results.body.podcasts);
       })
       .catch((error) => console.error(error));
@@ -36,22 +40,24 @@ const Podcasts = (props) => {
   return (
     <div>
       <Layout>
+        {/* Vertical menu */}
         <PodStructure />
         <Layout style={{ padding: "0 24px 24px" }}>
           {/* Breadcrumb */}
           <Breadcrumb style={{ margin: "16px 0" }}>
             <div className='demo-nav'>
-              <Link to='/'>
-                <FaHeadphonesAlt /> Podcasts
-              </Link>
               <Link to='/library'>
                 <MdLibraryMusic /> Your Library
               </Link>
             </div>
           </Breadcrumb>
-
           {/* Carousel */}
-          <>{podcasts && <CarouselBanner podcasts={podcasts} />}</>
+
+          <div>
+            {podcasts && (
+              <CarouselBanner podcasts={podcasts} name={resName.name} />
+            )}
+          </div>
 
           {/* Top Searched podcasts */}
           <Card>
@@ -101,7 +107,7 @@ const Podcasts = (props) => {
           </Card>
           {/* Topic Tags */}
           <Card>
-            <Card type='inner' title='Browse By Topic'>
+            <Card id='discover' type='inner' title='Browse By Topic'>
               <Row>
                 <TopicTags />
               </Row>
