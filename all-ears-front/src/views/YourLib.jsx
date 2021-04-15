@@ -79,7 +79,7 @@ const YourLib = () => {
                     <>
                       <Col className='gutter-row' style={style} span={4}>
                         <Content className='site-card-wrapper'>
-                          <Link to={`/podcast/${podcast.id}`}>
+                          <Link to={`/podcast/${podcast.body.id}`}>
                             <LibItems
                               title={podcast.body.title}
                               image={podcast.body.image}></LibItems>
