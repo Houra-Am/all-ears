@@ -53,13 +53,12 @@ const Podcasts = (props) => {
           </Breadcrumb>
           {/* Carousel */}
 
-          <Link to={`/podcast/${podcasts.id}`}>
-            <div>
-              {podcasts && (
-                <CarouselBanner podcasts={podcasts} name={resName.name} />
-              )}
-            </div>
-          </Link>
+          <div>
+            {podcasts && (
+              <CarouselBanner podcasts={podcasts} name={resName.name} />
+            )}
+          </div>
+
           {/* Top Searched podcasts */}
           <Card>
             <Card type='inner' title='Top Search'>

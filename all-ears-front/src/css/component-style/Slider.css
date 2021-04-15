@@ -1,6 +1,7 @@
 .slick-slide {
   position: relative;
   overflow: hidden;
+  width: 100%;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 10px;

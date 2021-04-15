@@ -15,18 +15,20 @@ const CarouselBanner = (props) => {
       <Carousel afterChange={onChange}>
         {props.podcasts.slice(5, 12).map((podcast) => {
           return (
-            <div className='slick-slide'>
-              <img
-                className='slick-slide-image d-block w-100'
-                alt='carousel'
-                src={podcast.image}
-              />
-              <img
-                className='position-absolute'
-                alt='carousel'
-                src={podcast.image}
-              />
-            </div>
+            <Link to={`/podcast/${podcast.id}`}>
+              <div className='slick-slide'>
+                <img
+                  className='slick-slide-image d-block w-100'
+                  alt='carousel'
+                  src={podcast.image}
+                />
+                <img
+                  className='position-absolute'
+                  alt='carousel'
+                  src={podcast.image}
+                />
+              </div>
+            </Link>
           );
         })}
       </Carousel>
