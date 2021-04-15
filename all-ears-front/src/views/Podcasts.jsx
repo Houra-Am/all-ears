@@ -24,9 +24,6 @@ const Podcasts = (props) => {
         return response.json();
       })
       .then((results) => {
-        console.log("results", results.body);
-        console.log(resName);
-        console.log(results.body.name);
         setResName(results.body);
         setPodcasts(results.body.podcasts);
       })

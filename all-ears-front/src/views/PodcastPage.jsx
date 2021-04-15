@@ -15,7 +15,6 @@ const PodcastsPage = (props) => {
   const [episodes, setEpisodes] = useState();
 
   const getEachPod = () => {
-    console.log("props param", props.match.params);
     const apiUrl = `http://localhost:8000/podcasts/${props.match.params.id}`;
     fetch(apiUrl)
       .then((response) => {

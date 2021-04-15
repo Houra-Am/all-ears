@@ -26,7 +26,6 @@ export default function Signup() {
   const onFinish = async (data) => {
     try {
       delete data.confirm_password;
-      console.log("data =", data);
       const response = await fetch("http://localhost:8000/signup", {
         method: "POST",
         headers: {
@@ -34,7 +33,6 @@ export default function Signup() {
         },
         body: JSON.stringify(data),
       });
-      console.log(response);
       if (response.ok) {
         history.push("/login");
       }

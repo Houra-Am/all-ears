@@ -15,8 +15,6 @@ const TopicTags = (props) => {
         return response.json();
       })
       .then((result) => {
-        console.log(result);
-        console.log("genres: ", result.body.genres);
         setTopics(result.body);
         setGenres(result.body.genres);
         /* history.push(`/podcasts/genre/${genres.id}`); */

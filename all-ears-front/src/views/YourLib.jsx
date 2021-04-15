@@ -17,7 +17,6 @@ const YourLib = () => {
         return response.json()
       })
       .then((response) => {
-        console.log(response)
         if (response.status === 404) {
           setNoLikes(true)
         } else if (response.status === 403) {
@@ -25,7 +24,6 @@ const YourLib = () => {
         } else {
           setPodcastsLikes(response)
         }
-        console.log(response)
       })
   }
 
