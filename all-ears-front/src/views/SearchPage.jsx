@@ -28,22 +28,27 @@ const SearchPage = (props) => {
       {podcasts &&
         podcasts.map((podcast, index) => {
           return (
-            <>
-           <p><strong>Title</strong> : {podcast.title_original}</p>
-           <p><strong>Publisher</strong> : {podcast.publisher_original}</p>
-           <p className="description"><strong>Description</strong> :{podcast.description_original}</p>
-          
-            <Link to={`/podcast/${podcast.id}`}>
-              <p>Episodes: {podcast.total_episodes}</p>
-              <Card
-                hoverable
-                style={{ width: 300, height: 300, borderRadius: 30}}
-                cover={<img alt='example' src={podcast.image}
-                title={podcast.title_original}
-                 />}>
-                </Card>
-            </Link>  
-            </>
+            <div className="container d-flex justify-content-space-around">
+              <div className="row">
+                <div className="col">
+                  <p><strong>Title</strong> : {podcast.title_original}</p>
+                  <p><strong>Publisher</strong> : {podcast.publisher_original}</p>
+                  <p><strong>Description</strong> : {podcast.description_original}</p>
+                </div>
+                <div className="col">
+                  <Link to={`/podcast/${podcast.id}`}>
+                      <p>Episodes: {podcast.total_episodes}</p>
+                    <Card className="card"
+                      hoverable
+                      style={{ width: 300, height: 300}}
+                      cover={<img alt='example' src={podcast.image}
+                      title={podcast.title_original}
+                    />}>
+                    </Card>
+                  </Link>  
+                </div>
+              </div>  
+            </div>
           );    
         })}    
     </div>
