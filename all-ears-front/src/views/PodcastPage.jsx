@@ -27,6 +27,21 @@ const PodcastsPage = (props) => {
       .catch((error) => console.error(error));
   };
 
+  const likePodcast = () => {
+    fetch(`http://localhost:8000/podcasts/like/${props.match.params.id}`, {
+      method: "POST",
+      headers: {
+        'Authorization': "Bearer " + localStorage.getItem('token'),
+      }
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        console.log(response)
+      })
+  }
+
   useEffect(() => {
     getEachPod();
   }, [props.match.params.string]);
@@ -52,6 +67,7 @@ const PodcastsPage = (props) => {
                 publisher={podcast.publisher}
                 language={podcast.language}
                 total_episodes={podcast.total_episodes}
+                onClick={likePodcast}
               />
             )}
 
