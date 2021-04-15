@@ -1,5 +1,6 @@
 import React from "react";
 import { Carousel, Card } from "antd";
+import { Link } from "react-router-dom";
 import "../../css/component-style/Slider.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,7 +11,7 @@ function onChange(a, b, c) {
 
 const CarouselBanner = (props) => {
   return (
-    <Card title='Listen Now'>
+    <Card title={props.name}>
       <Carousel afterChange={onChange}>
         {props.podcasts.slice(5, 12).map((podcast) => {
           return (

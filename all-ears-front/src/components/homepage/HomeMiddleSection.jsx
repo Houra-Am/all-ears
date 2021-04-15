@@ -28,15 +28,15 @@ const HomeMiddleSection = () => {
             <h1>
               I Want to Listen to{" "}
               <DropDown
-                text={"Tech"}
+                text={"Tech podcasts"}
                 category={{
-                  optionOne: "Star Wars",
-                  optionTwo: "Tech Podcasts",
+                  optionOne: "History",
+                  optionTwo: "Fiction",
                   optionThree: "True Crime",
                 }}></DropDown>{" "}
               While I{" "}
               <DropDown
-                text={"Running"}
+                text={"Cook"}
                 category={{
                   optionOne: "Run",
                   optionTwo: "Do Laundry",
