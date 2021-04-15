@@ -15,7 +15,6 @@ const PodcastsPage = (props) => {
   const [episodes, setEpisodes] = useState();
 
   const getEachPod = () => {
-    console.log("props param", props.match.params);
     const apiUrl = `http://localhost:8000/podcasts/${props.match.params.id}`;
     fetch(apiUrl)
       .then((response) => {
@@ -27,6 +26,21 @@ const PodcastsPage = (props) => {
       })
       .catch((error) => console.error(error));
   };
+
+  const likePodcast = () => {
+    fetch(`http://localhost:8000/podcasts/like/${props.match.params.id}`, {
+      method: "POST",
+      headers: {
+        'Authorization': "Bearer " + localStorage.getItem('token'),
+      }
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        console.log(response)
+      })
+  }
 
   useEffect(() => {
     getEachPod();
@@ -53,6 +67,7 @@ const PodcastsPage = (props) => {
                 publisher={podcast.publisher}
                 language={podcast.language}
                 total_episodes={podcast.total_episodes}
+                onClick={likePodcast}
               />
             )}
 
@@ -89,4 +104,4 @@ const PodcastsPage = (props) => {
 
 export default PodcastsPage;
 
-/* dangerouslySetInnerHTML={{ __html: props.description }} */
+/*dangerouslySetInnerHTML={{ __html: props.description }} */

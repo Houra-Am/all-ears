@@ -14,7 +14,6 @@ const HomeBottom = () => {
         return response.json();
       })
       .then((results) => {
-        console.log("result of 6 random pod:", results);
         setPodcastThumbnail(results);
       })
       .catch((error) => console.error(error));

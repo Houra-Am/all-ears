@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Card, Divider, Button, Col, Row } from "antd";
 import {
@@ -10,6 +10,23 @@ import {
 } from "@ant-design/icons";
 
 const ShowDetails = (props) => {
+
+  const likePodcast = () => {
+    console.log(props.match.params.id)
+    fetch(`http://localhost:8000/podcasts/like/${props.match.params.id}`, {
+      method: "POST",
+      headers: {
+        'Authorization': "Bearer " + localStorage.getItem('token'),
+      }
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        console.log(response)
+      })
+  }
+
   return (
     <div className='site-card-wrapper'>
       <Row gutter={16}>
@@ -25,7 +42,7 @@ const ShowDetails = (props) => {
             <p>Language: {props.language} </p>
             <p>Episodes: {props.total_episodes}</p>
             <Button icon={<ShareAltOutlined />}>Share</Button>
-            <Button icon={<PlusOutlined />}>Follow</Button>
+            <Button onClick={props.onClick} icon={<PlusOutlined />}>Follow</Button>
             <Button type='link' href='https://twitter.com/twitter/'>
               <TwitterSquareFilled />
             </Button>

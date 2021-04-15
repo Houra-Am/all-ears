@@ -37,7 +37,6 @@ router.get("/podcasts/best/:id", async (req, res) => {
             res.status(200).json(response)
             return;
         } else if (req.query.page) { // Si non si le query params page est renseigné alors j'affiche sa page correspondante
-            console.log(req.query.page)
             const response = await listenNotesApi(`https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=${req.params.id}&page=${req.query.page}&region=us&safe_mode=0`)
             res.status(200).json(response)
             return;
