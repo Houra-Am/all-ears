@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Form, Input, Button, Upload } from "antd";
 
 const layout = {
@@ -51,7 +51,7 @@ export default function Signup() {
         rules={[
           {
             required: true,
-            message: "Please input your email!",
+            message: "Please insert your email!",
           },
         ]}>
         <Input />
@@ -114,6 +114,10 @@ export default function Signup() {
           Submit
         </Button>
       </Form.Item>
+
+      <p>
+        Continue browsing our <Link to='/'>Podcasts</Link> as a guest
+      </p>
     </Form>
   );
 }

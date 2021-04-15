@@ -7,8 +7,8 @@ const Player = (props) => {
       audio={props.audio}
       thumbnail={props.thumbnail}
       color='#912654'
-      height={90}
-      width={90}
+      height={180}
+      width={180}
     />
   );
 };

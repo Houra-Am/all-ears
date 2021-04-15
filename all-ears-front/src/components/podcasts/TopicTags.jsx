@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useHistory } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "antd";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../../css/component-style/TopicTags.css";
 
 const TopicTags = (props) => {
   const [topics, setTopics] = useState();
   const [genres, setGenres] = useState();
-  /*   const history = useHistory(); */
 
   const getTopics = (props) => {
     const apiUrl = `http://localhost:8000/podcasts/genres?best=true`;

@@ -12,9 +12,9 @@ const SearchPage = (props) => {
         return response.json();
       })
       .then((response) => {
-        setPodcasts(response.body.results)
-      })
-  }
+        setPodcasts(response.body.results);
+      });
+  };
 
   useEffect(() => {
     getResult();
@@ -22,7 +22,7 @@ const SearchPage = (props) => {
 
   return (
     <div>
-      <h3>Tour Search Result</h3>
+      <h3>Your Search Result</h3>
       {podcasts &&
         podcasts.map((podcast, index) => {
           return (

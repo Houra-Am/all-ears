@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Button, Layout } from "antd";
 import Thumbnail from "../../components/homepage/Thumbnail";
+
 const { Content } = Layout;
 
 const HomeBottom = () => {

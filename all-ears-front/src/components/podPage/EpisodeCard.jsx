@@ -4,11 +4,7 @@ import { List, Space } from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
 
 const EpisodeCard = (props) => {
-  const listEpisode = [
-    {
-      data: props.episodes,
-    },
-  ];
+  const listEpisode = [{ data: props.episodes }];
 
   const IconText = ({ icon, text }) => (
     <Space>
@@ -24,7 +20,7 @@ const EpisodeCard = (props) => {
         dataSource={listEpisode}
         renderItem={(item) => (
           <List.Item
-            extra={<img width={150} alt='thumbnail' src={props.image} />}
+            /*  extra={<img width={150} alt='thumbnail' src={props.image} />} */
             key={item.title}
             actions={[
               <IconText

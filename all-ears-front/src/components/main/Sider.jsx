@@ -1,4 +1,4 @@
-import { Menu } from "antd";
+/* import { Menu } from "antd";
 import {
   UserOutlined,
   LaptopOutlined,
@@ -37,3 +37,4 @@ export default function Sider(props) {
     </Sider>
   );
 }
+ */
