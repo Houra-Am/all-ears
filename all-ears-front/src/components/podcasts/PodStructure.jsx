@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Layout, Menu } from "antd";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 import {
   HomeOutlined,
   CompassOutlined,
@@ -36,7 +37,7 @@ const PodStructure = () => {
           <Link to='/'>Home</Link>
         </Menu.Item>
         <Menu.Item key='sub2' icon={<CompassOutlined />} title='Discover'>
-          <Link to='/podcasts/genre/127'>Discover</Link>
+          <AnchorLink href='#discover'>Discover</AnchorLink>
         </Menu.Item>
         <Menu.Item key='sub3' icon={<RocketOutlined />} title='Support'>
           <Link to='/supportUs'>Support Us</Link>

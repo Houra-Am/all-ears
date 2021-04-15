@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "antd";
-import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../../css/component-style/TopicTags.css";
 
@@ -17,7 +16,6 @@ const TopicTags = (props) => {
       .then((result) => {
         setTopics(result.body);
         setGenres(result.body.genres);
-        /* history.push(`/podcasts/genre/${genres.id}`); */
       })
       .catch((error) => console.error(error));
   };

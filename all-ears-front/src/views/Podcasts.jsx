@@ -37,10 +37,8 @@ const Podcasts = (props) => {
   return (
     <div>
       <Layout>
-        {/* Vertical menu */}
         <PodStructure />
         <Layout style={{ padding: "0 24px 24px" }}>
-          {/* Breadcrumb */}
           <Breadcrumb style={{ margin: "16px 0" }}>
             <div className='demo-nav'>
               <Link to='/library'>
@@ -48,7 +46,6 @@ const Podcasts = (props) => {
               </Link>
             </div>
           </Breadcrumb>
-          {/* Carousel */}
 
           <div>
             {podcasts && (
@@ -56,7 +53,6 @@ const Podcasts = (props) => {
             )}
           </div>
 
-          {/* Top Searched podcasts */}
           <Card>
             <Card type='inner' title='Top Search'>
               <Row>
