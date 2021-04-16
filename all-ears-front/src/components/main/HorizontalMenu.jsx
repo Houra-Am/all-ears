@@ -3,6 +3,7 @@ import { Layout, Menu } from "antd";
 import { Link } from "react-router-dom";
 import SearchBar from "../main/SearchBar";
 import logo from "../../image/logo.png";
+import "../../css/main-style/HorizontalMenu.css";
 
 const { Header } = Layout;
 
@@ -11,9 +12,13 @@ const HorizontalMenu = () => {
     <>
       <Layout className='layout'>
         <Header>
-          <div className='logo' src={logo}>
-            {logo}
-          </div>
+          {/* <img className='logo' alt='logo' src={logo} style={{ width: 40 }} /> */}
+          <img
+            className='logo'
+            src={logo}
+            alt='logo'
+            style={{ width: 50, height: 50 }}
+          />
           <div className='searchBarPos'>
             <SearchBar />
           </div>
