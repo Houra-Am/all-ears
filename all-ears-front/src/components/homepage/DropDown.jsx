@@ -9,11 +9,10 @@ const DropDown = (props) => {
       <Select
         defaultValue='Select an activity'
         style={{ width: 170 }}
-        onChange={props.value}>
+        onChange={props.onChange}>
         {props.genres &&
           props.genres.slice(6, 12).map((genre, index) => {
             console.log("genre", genre);
-
             return (
               <Option value={genre.name} id={genre.id}>
                 {genre.name}
@@ -27,7 +26,7 @@ const DropDown = (props) => {
 
 export default DropDown;
 
-/*     
+/*
 
   /*   const menu = (
     <Menu>
@@ -41,7 +40,7 @@ export default DropDown;
         <Link to='/podcasts/genre/135'>{props.category.optionThree}</Link>
       </Menu.Item>
     </Menu>
-  ); 
+  );
 
 <Dropdown overlay={menu}>
       <a
