@@ -45,7 +45,7 @@ const ShowDetails = (props) => {
             <Divider />
             <p>Language: {props.language} </p>
             <p>Episodes: {props.total_episodes}</p>
-            {/* <Button icon={<ShareAltOutlined />}>Share</Button> */}
+
             <Button
               onClick={() => {
                 props.onClick();

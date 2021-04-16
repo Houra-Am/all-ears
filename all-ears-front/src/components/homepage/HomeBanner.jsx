@@ -16,19 +16,19 @@ const HomeBanner = () => {
         }}>
         <Row>
           <Col span={12}>
-            <h1>LET US BLOW YOUR MIND AND SPARK YOUR IMAGINATION</h1>
+            <h1 className='banner-title'>
+              LET US BLOW YOUR MIND AND SPARK YOUR IMAGINATION
+            </h1>
             <Link to='/podcasts/genre/127'>
               <Button className='listen-now' htmlType='submit' type='primary'>
                 LISTEN NOW
               </Button>
             </Link>
           </Col>
-          <Col span={12}>
-            <Card
-              className='header-image'
-              hoverable
-              style={{ width: 400 }}
-              cover={<img alt='example' src={head} />}></Card>
+          <Col span={12} className='banner-image'>
+            {/* <Card className='header-image' bordered={false}> */}
+            <img className='header-image' alt='example' src={head}></img>
+            {/*  </Card> */}
           </Col>
         </Row>
       </Content>

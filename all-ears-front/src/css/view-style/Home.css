@@ -15,16 +15,16 @@
   background: #fff;
 }
 
-h1 {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+.h1 {
+  font-family: "Montserrat", sans-serif;
   font-weight: 900;
-  font-size: 4rem;
+  font-size: 5rem;
   padding-right: 40px;
 }
 
 .listen-now {
   background-color: #4caf50; /* Green */
+  height: 60px;
   border: none;
   color: white;
   padding: 0px 80px;
@@ -34,10 +34,11 @@ h1 {
   font-size: 16px;
   margin: 20px 2px;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
 .header-image {
   width: 100%;
   height: auto;
+  border-radius: 9px;
 }
