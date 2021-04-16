@@ -14,7 +14,11 @@ const HorizontalMenu = () => {
           <div className='searchBarPos'>
             <SearchBar />
           </div>
-          <Menu theme='dark' mode='horizontal' defaultSelectedKeys={["1"]}>
+          <Menu
+            className='horizontal-menu'
+            theme='dark'
+            mode='horizontal'
+            defaultSelectedKeys={["1"]}>
             <Menu.Item key='1'>
               <Link to='/'>All Ears</Link>
             </Menu.Item>
