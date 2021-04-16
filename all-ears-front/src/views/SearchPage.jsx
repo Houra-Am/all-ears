@@ -18,7 +18,7 @@ const IconText = ({ icon, text }) => (
 );
 
 const SearchPage = (props) => {
-  const [podcasts, setPodcasts] = useState();
+  const [podcasts, setPodcasts] = useState([]);
 
   const getResult = () => {
     fetch(
@@ -28,8 +28,14 @@ const SearchPage = (props) => {
         return response.json();
       })
       .then((response) => {
-        setPodcasts(response.body.results);
-        console.log(response.body.results);
+       
+        if(response.statusCode == 200){
+          setPodcasts(response.body.results);
+         
+        }else{
+          setPodcasts([]);
+        }
+      
       });
   };
 
@@ -39,7 +45,6 @@ const SearchPage = (props) => {
 
   return (
     <div>
-      {podcasts && (
         <Layout>
           <PodStructure />
           <Layout style={{ padding: "0 24px 24px" }}>
@@ -50,7 +55,7 @@ const SearchPage = (props) => {
               </Link>
             </Breadcrumb>
 
-            <List
+            {podcasts.length > 0 ? ( <List
               itemLayout='horizontal'
               dataSource={podcasts}
               renderItem={(item) => (
@@ -100,7 +105,11 @@ const SearchPage = (props) => {
                   </Card>
                 </List.Item>
               )}
-            />
+            />):(
+              <div>
+                <p>No result</p>
+              </div>
+            )}
             <Divider />
             <Card id='discover' type='inner' title='Browse By Topic'>
               <Row>
@@ -109,7 +118,7 @@ const SearchPage = (props) => {
             </Card>
           </Layout>
         </Layout>
-      )}
+      
       )
     </div>
   );
