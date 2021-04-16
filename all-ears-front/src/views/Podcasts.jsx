@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Layout, Breadcrumb, Card, Col, Row } from "antd";
 import { Link } from "react-router-dom";
-import { FaHeadphonesAlt } from "react-icons/fa";
 import { MdLibraryMusic } from "react-icons/md";
 import PodStructure from "../components/podcasts/PodStructure";
 import CarouselBanner from "../components/podcasts/CarouselBanner";
 import TopSearchedCard from "../components/podcasts/TopSearchedCard";
 import BestPods from "../components/podcasts/BestPods";
 import TopicTags from "../components/podcasts/TopicTags";
+import SearchBar from "../components/main/SearchBar";
 import "../css/view-style/Podcasts.css";
 
 const { Content } = Layout;
@@ -37,10 +37,9 @@ const Podcasts = (props) => {
   return (
     <div>
       <Layout>
-        {/* Vertical menu */}
         <PodStructure />
         <Layout style={{ padding: "0 24px 24px" }}>
-          {/* Breadcrumb */}
+          <SearchBar />
           <Breadcrumb style={{ margin: "16px 0" }}>
             <div className='demo-nav'>
               <Link to='/library'>
@@ -48,7 +47,6 @@ const Podcasts = (props) => {
               </Link>
             </div>
           </Breadcrumb>
-          {/* Carousel */}
 
           <div>
             {podcasts && (
@@ -56,7 +54,6 @@ const Podcasts = (props) => {
             )}
           </div>
 
-          {/* Top Searched podcasts */}
           <Card>
             <Card type='inner' title='Top Search'>
               <Row>

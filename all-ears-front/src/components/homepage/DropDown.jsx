@@ -1,9 +1,35 @@
-import { Menu, Dropdown } from "antd";
-import { DownOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Select } from "antd";
 
-export default function DropDown(props) {
-  const menu = (
+const { Option } = Select;
+
+const DropDown = (props) => {
+  return (
+    <>
+      <Select
+        defaultValue='Select an activity'
+        style={{ width: 170 }}
+        onChange={props.value}>
+        {props.genres &&
+          props.genres.slice(6, 12).map((genre, index) => {
+            console.log("genre", genre);
+
+            return (
+              <Option value={genre.name} id={genre.id}>
+                {genre.name}
+              </Option>
+            );
+          })}
+      </Select>
+    </>
+  );
+};
+
+export default DropDown;
+
+/*     
+
+  /*   const menu = (
     <Menu>
       <Menu.Item>
         <Link to='/podcasts/genre/125'>{props.category.optionOne}</Link>
@@ -15,10 +41,9 @@ export default function DropDown(props) {
         <Link to='/podcasts/genre/135'>{props.category.optionThree}</Link>
       </Menu.Item>
     </Menu>
-  );
+  ); 
 
-  return (
-    <Dropdown overlay={menu}>
+<Dropdown overlay={menu}>
       <a
         href
         id='dropdown-select'
@@ -26,6 +51,4 @@ export default function DropDown(props) {
         onClick={(e) => e.preventDefault()}>
         {props.text} <DownOutlined />
       </a>
-    </Dropdown>
-  );
-}
+    </Dropdown> */

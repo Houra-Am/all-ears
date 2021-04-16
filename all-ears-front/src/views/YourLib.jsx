@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Layout, Breadcrumb, Card, Col, Row } from "antd";
+import { Layout, Breadcrumb, Card, Col, Row, Divider } from "antd";
 import { Link } from "react-router-dom";
-import { MdLibraryMusic } from "react-icons/md";
+import { FaHeadphonesAlt } from "react-icons/fa";
 import PodStructure from "../components/podcasts/PodStructure";
 import TopicTags from "../components/podcasts/TopicTags";
 import LibItems from "../components/Library/LibItems";
+import SearchBar from "../components/main/SearchBar";
 
 const { Content } = Layout;
 const style = { padding: "30px 0", margin: "auto" };
@@ -42,13 +43,14 @@ const YourLib = () => {
   return (
     <div>
       <Layout>
-        {/* Vertical menu */}
         <PodStructure />
         <Layout style={{ padding: "0 24px 24px" }}>
-          {/* Breadcrumb */}
+          <SearchBar />
           <Breadcrumb style={{ margin: "16px 0" }}>
             <div className='demo-nav'>
-              <MdLibraryMusic /> Your Library
+              <Link to='/podcasts/genre/144'>
+                <FaHeadphonesAlt /> Podcasts
+              </Link>
             </div>
           </Breadcrumb>
 
@@ -68,6 +70,8 @@ const YourLib = () => {
               title='Inner Card title'>
               <Link to='/login'>Login</Link> or <Link to='/signup'>create</Link>{" "}
               an account to add podcasts to your library.
+              <Divider />
+              <p>You can still browse the categories for free! </p>
             </Card>
           )}
 
@@ -90,6 +94,12 @@ const YourLib = () => {
                   );
                 })}
             </Row>
+            <Divider />
+            <Card id='discover' type='inner' title='Browse By Topic'>
+              <Row>
+                <TopicTags />
+              </Row>
+            </Card>
           </Card>
         </Layout>
       </Layout>
@@ -98,7 +108,3 @@ const YourLib = () => {
 };
 
 export default YourLib;
-
-/* 
-<img src={podcast.body.image}></img>
-<p>{podcast.body.title}</p> */

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import { Form, Input, Button, Upload } from "antd";
+import { Form, Input, Button } from "antd";
 
 const layout = {
   labelCol: {
@@ -19,9 +19,9 @@ const layout = {
 export default function Signup() {
   let history = useHistory();
 
-  const [email, setEmail] = useState("");
+  /*   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(""); */
 
   const onFinish = async (data) => {
     try {

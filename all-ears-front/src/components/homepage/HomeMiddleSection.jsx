@@ -1,12 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Layout, Card, Row, Col, Button } from "antd";
+import { Layout, Card, Row, Col, Button, Select } from "antd";
 import "../../css/component-style/DropDown.css";
 import imagination from "../../image/imagination.png";
 import DropDown from "./DropDown";
+
 const { Content } = Layout;
+const { Option } = Select;
 
 const HomeMiddleSection = () => {
+  const history = useHistory();
+  const [genres, setGenres] = useState();
+  const [value, setValue] = useState("");
+
+  const getGenre = (props) => {
+    const apiUrl = `http://localhost:8000/podcasts/genres?best=true`;
+    fetch(apiUrl)
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        setGenres(result.body.genres);
+      })
+      .catch((error) => console.error(error));
+  };
+
+  useEffect(() => {
+    getGenre();
+  }, []);
+
+  const handleSelect = (e) => {
+    console.log(e);
+    setValue(e);
+  };
+
   return (
     <div>
       <Content
@@ -27,27 +55,35 @@ const HomeMiddleSection = () => {
           <Col span={12}>
             <h1>
               I Want to Listen to{" "}
-              <DropDown
-                text={"Tech podcasts"}
-                category={{
-                  optionOne: "History",
-                  optionTwo: "Fiction",
-                  optionThree: "True Crime",
-                }}></DropDown>{" "}
+              {genres && (
+                <DropDown
+                  defaultValue='Select a genre'
+                  genres={genres}
+                  onSelect={value}
+                  value={genres.name}
+                  id={genres.id}
+                  text={"Tech podcasts"}></DropDown>
+              )}
               While I{" "}
-              <DropDown
-                text={"Cook"}
-                category={{
-                  optionOne: "Run",
-                  optionTwo: "Do Laundry",
-                  optionThree: "Drive",
-                }}></DropDown>
+              <Select defaultValue='Select an activity' style={{ width: 170 }}>
+                <Option value='Cook'>Cook</Option>
+                <Option value='Run'>Run</Option>
+                <Option value='Do Laundry'>Do Laundry</Option>
+                <Option value='Drive'>Drive</Option>
+              </Select>
             </h1>
-            <Link to='/podcasts/genre/127'>
-              <Button className='listen-now' htmlType='submit' type='primary'>
+
+            {genres && (
+              <Button
+                onClick={(e) => {
+                  history.push(`/podcasts/genre/${genres.id}`);
+                }}
+                className='listen-now'
+                htmlType='submit'
+                type='primary'>
                 LISTEN NOW
               </Button>
-            </Link>
+            )}
           </Col>
         </Row>
       </Content>
