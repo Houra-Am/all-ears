@@ -15,30 +15,38 @@
   background: #fff;
 }
 
-.h1 {
+h1 {
   font-family: "Montserrat", sans-serif;
-  font-weight: 900;
-  font-size: 5rem;
+  font-weight: 800;
+  font-size: 4rem;
   padding-right: 40px;
 }
 
 .listen-now {
-  background-color: #4caf50; /* Green */
+  background-color: #ee5115; /* Green */
   height: 60px;
   border: none;
   color: white;
-  padding: 0px 80px;
+  padding: 0px 100px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 20px 2px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 98px;
+  left: 85px;
   cursor: pointer;
   border-radius: 10px;
 }
 
+.listen-now:hover {
+}
+
 .header-image {
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
   height: auto;
   border-radius: 9px;
+  float: right;
 }

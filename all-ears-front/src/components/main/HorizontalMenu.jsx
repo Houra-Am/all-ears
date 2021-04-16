@@ -2,6 +2,7 @@ import React from "react";
 import { Layout, Menu } from "antd";
 import { Link } from "react-router-dom";
 import SearchBar from "../main/SearchBar";
+import logo from "../../image/logo.png";
 
 const { Header } = Layout;
 
@@ -10,7 +11,9 @@ const HorizontalMenu = () => {
     <>
       <Layout className='layout'>
         <Header>
-          <div className='logo' />
+          <div className='logo' src={logo}>
+            {logo}
+          </div>
           <div className='searchBarPos'>
             <SearchBar />
           </div>

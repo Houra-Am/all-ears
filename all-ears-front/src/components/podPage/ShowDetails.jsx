@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Lottie from "react-lottie";
-import Add from "../../image/add.json";
 /* import {FaRegCheckCircle} from 'react-icons/fa' */
 
 import { Card, Divider, Button, Col, Row } from "antd";

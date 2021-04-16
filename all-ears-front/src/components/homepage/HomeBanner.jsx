@@ -10,7 +10,7 @@ const HomeBanner = () => {
       <Content
         className='site-layout-background'
         style={{
-          padding: 24,
+          padding: 40,
           margin: 0,
           minHeight: 280,
         }}>
@@ -19,6 +19,7 @@ const HomeBanner = () => {
             <h1 className='banner-title'>
               LET US BLOW YOUR MIND AND SPARK YOUR IMAGINATION
             </h1>
+
             <Link to='/podcasts/genre/127'>
               <Button className='listen-now' htmlType='submit' type='primary'>
                 LISTEN NOW
@@ -27,7 +28,11 @@ const HomeBanner = () => {
           </Col>
           <Col span={12} className='banner-image'>
             {/* <Card className='header-image' bordered={false}> */}
-            <img className='header-image' alt='example' src={head}></img>
+            <img
+              className='header-image'
+              alt='example'
+              src={head}
+              style={{ height: 546, width: 546 }}></img>
             {/*  </Card> */}
           </Col>
         </Row>
