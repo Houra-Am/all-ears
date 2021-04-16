@@ -15,22 +15,6 @@ import {
 const ShowDetails = (props) => {
   const [isClicked, setIsClicked] = useState(false);
 
-  const likePodcast = () => {
-    console.log(props.match.params.id);
-    fetch(`http://localhost:8000/podcasts/like/${props.match.params.id}`, {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((response) => {
-        console.log(response);
-      });
-  };
-
   return (
     <div className='site-card-wrapper'>
       <Row gutter={16}>

@@ -13,6 +13,7 @@ const HomeMiddleSection = () => {
   const history = useHistory();
   const [genres, setGenres] = useState();
   const [value, setValue] = useState("");
+  const [selectedGenre, setSelectedGenre] = useState()
 
   const getGenre = (props) => {
     const apiUrl = `http://localhost:8000/podcasts/genres?best=true`;
@@ -59,8 +60,14 @@ const HomeMiddleSection = () => {
                 <DropDown
                   defaultValue='Select a genre'
                   genres={genres}
-                  onSelect={value}
-                  value={genres.name}
+                  onChange={(event) => {
+                    const genre = genres.find((genre) => {
+                      return (
+                        genre.name == event
+                      )
+                    })
+                    setSelectedGenre(genre)
+                  }}
                   id={genres.id}
                   text={"Tech podcasts"}></DropDown>
               )}
@@ -75,8 +82,8 @@ const HomeMiddleSection = () => {
 
             {genres && (
               <Button
-                onClick={(e) => {
-                  history.push(`/podcasts/genre/${genres.id}`);
+                onClick={() => {
+                  history.push(`/podcasts/genre/${selectedGenre.id}`);
                 }}
                 className='listen-now'
                 htmlType='submit'
