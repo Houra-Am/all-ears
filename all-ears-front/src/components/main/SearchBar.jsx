@@ -14,7 +14,7 @@ const SearchBar = () => {
   return (
     <div>
       <Search
-        placeholder='input search text'
+        placeholder='Search'
         onSearch={onSearch}
         style={{ width: 200, paddingTop: 10 }}
       />

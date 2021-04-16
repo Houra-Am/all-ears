@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { Menu, Dropdown, Select } from "antd";
-import { DownOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Select } from "antd";
 
 const { Option } = Select;
-
-function handleChange(value) {
-  console.log(`selected ${value}`);
-}
 
 const DropDown = (props) => {
   return (
     <>
       <Select
-        defaultValue={props.value}
+        defaultValue='Select an activity'
         style={{ width: 170 }}
-        onChange={handleChange}>
+        onChange={props.value}>
         {props.genres &&
           props.genres.slice(6, 12).map((genre, index) => {
-            return <Option value={genre.name}>{genre.name}</Option>;
+            console.log("genre", genre);
+
+            return (
+              <Option value={genre.name} id={genre.id}>
+                {genre.name}
+              </Option>
+            );
           })}
       </Select>
     </>

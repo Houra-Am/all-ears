@@ -1,15 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import Lottie from "react-lottie";
+import Add from "../../image/add.json";
+/* import {FaRegCheckCircle} from 'react-icons/fa' */
 
 import { Card, Divider, Button, Col, Row } from "antd";
 import {
-  ShareAltOutlined,
   PlusOutlined,
+  CheckOutlined,
   FacebookFilled,
   InstagramFilled,
   TwitterSquareFilled,
 } from "@ant-design/icons";
 
 const ShowDetails = (props) => {
+  const [isClicked, setIsClicked] = useState(false);
+
   const likePodcast = () => {
     console.log(props.match.params.id);
     fetch(`http://localhost:8000/podcasts/like/${props.match.params.id}`, {
@@ -24,6 +29,10 @@ const ShowDetails = (props) => {
       .then((response) => {
         console.log(response);
       });
+  };
+
+  const handleClick = (e) => {
+    setIsClicked(!isClicked);
   };
 
   return (
@@ -41,7 +50,9 @@ const ShowDetails = (props) => {
             <p>Language: {props.language} </p>
             <p>Episodes: {props.total_episodes}</p>
             {/* <Button icon={<ShareAltOutlined />}>Share</Button> */}
-            <Button onClick={props.onClick} icon={<PlusOutlined />}>
+            <Button
+              onClick={props.onClick}
+              clickHandler={handleClick ? <CheckOutlined /> : <PlusOutlined />}>
               Add to library
             </Button>
             <Button type='link' href='https://twitter.com/twitter/'>

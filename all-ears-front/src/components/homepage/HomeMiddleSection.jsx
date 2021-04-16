@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Layout, Card, Row, Col, Button, Select } from "antd";
 import "../../css/component-style/DropDown.css";
@@ -9,7 +10,9 @@ const { Content } = Layout;
 const { Option } = Select;
 
 const HomeMiddleSection = () => {
+  const history = useHistory();
   const [genres, setGenres] = useState();
+  const [value, setValue] = useState("");
 
   const getGenre = (props) => {
     const apiUrl = `http://localhost:8000/podcasts/genres?best=true`;
@@ -27,9 +30,10 @@ const HomeMiddleSection = () => {
     getGenre();
   }, []);
 
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
+  const handleSelect = (e) => {
+    console.log(e);
+    setValue(e);
+  };
 
   return (
     <div>
@@ -53,11 +57,12 @@ const HomeMiddleSection = () => {
               I Want to Listen to{" "}
               {genres && (
                 <DropDown
+                  defaultValue='Select a genre'
                   genres={genres}
-                  onChange={handleChange}
-                  value={"Select a category"}
-                  text={"Tech podcasts"}
-                  category={genres.name}></DropDown>
+                  onSelect={value}
+                  value={genres.name}
+                  id={genres.id}
+                  text={"Tech podcasts"}></DropDown>
               )}
               While I{" "}
               <Select defaultValue='Select an activity' style={{ width: 170 }}>
@@ -68,11 +73,17 @@ const HomeMiddleSection = () => {
               </Select>
             </h1>
 
-            <Link to={`/podcasts/genre/127}`}>
-              <Button className='listen-now' htmlType='submit' type='primary'>
+            {genres && (
+              <Button
+                onClick={(e) => {
+                  history.push(`/podcasts/genre/${genres.id}`);
+                }}
+                className='listen-now'
+                htmlType='submit'
+                type='primary'>
                 LISTEN NOW
               </Button>
-            </Link>
+            )}
           </Col>
         </Row>
       </Content>

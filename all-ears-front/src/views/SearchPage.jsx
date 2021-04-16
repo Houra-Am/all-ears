@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Card, List, Space, Layout, Breadcrumb } from "antd";
+import { Card, List, Space, Layout, Breadcrumb, Divider, Row } from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
-import { MdLibraryMusic } from "react-icons/md";
+import { FaHeadphonesAlt } from "react-icons/fa";
 import PodStructure from "../components/podcasts/PodStructure";
+import SearchBar from "../components/main/SearchBar";
+import TopicTag from "../components/podcasts/TopicTags";
 import "../css/view-style/SearchPage.css";
 
 const { Meta } = Card;
@@ -41,10 +43,11 @@ const SearchPage = (props) => {
         <Layout>
           <PodStructure />
           <Layout style={{ padding: "0 24px 24px" }}>
+            <SearchBar />
             <Breadcrumb style={{ margin: "16px 0" }}>
-              <div className='demo-nav'>
-                <MdLibraryMusic /> Your Library
-              </div>
+              <Link to='/podcasts/genre/144'>
+                <FaHeadphonesAlt /> Podcasts
+              </Link>
             </Breadcrumb>
 
             <List
@@ -98,6 +101,12 @@ const SearchPage = (props) => {
                 </List.Item>
               )}
             />
+            <Divider />
+            <Card id='discover' type='inner' title='Browse By Topic'>
+              <Row>
+                <TopicTag />
+              </Row>
+            </Card>
           </Layout>
         </Layout>
       )}

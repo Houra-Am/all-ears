@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Layout, Breadcrumb, Card, Col, Row, Divider } from "antd";
 import { Link } from "react-router-dom";
-import { MdLibraryMusic } from "react-icons/md";
+import { FaHeadphonesAlt } from "react-icons/fa";
 import PodStructure from "../components/podcasts/PodStructure";
 import TopicTags from "../components/podcasts/TopicTags";
 import LibItems from "../components/Library/LibItems";
+import SearchBar from "../components/main/SearchBar";
 
 const { Content } = Layout;
 const style = { padding: "30px 0", margin: "auto" };
@@ -44,9 +45,12 @@ const YourLib = () => {
       <Layout>
         <PodStructure />
         <Layout style={{ padding: "0 24px 24px" }}>
+          <SearchBar />
           <Breadcrumb style={{ margin: "16px 0" }}>
             <div className='demo-nav'>
-              <MdLibraryMusic /> Your Library
+              <Link to='/podcasts/genre/144'>
+                <FaHeadphonesAlt /> Podcasts
+              </Link>
             </div>
           </Breadcrumb>
 
