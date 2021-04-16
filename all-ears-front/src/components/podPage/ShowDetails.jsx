@@ -31,10 +31,6 @@ const ShowDetails = (props) => {
       });
   };
 
-  const handleClick = (e) => {
-    setIsClicked(!isClicked);
-  };
-
   return (
     <div className='site-card-wrapper'>
       <Row gutter={16}>
@@ -51,8 +47,11 @@ const ShowDetails = (props) => {
             <p>Episodes: {props.total_episodes}</p>
             {/* <Button icon={<ShareAltOutlined />}>Share</Button> */}
             <Button
-              onClick={props.onClick}
-              clickHandler={handleClick ? <CheckOutlined /> : <PlusOutlined />}>
+              onClick={() => {
+                props.onClick();
+                setIsClicked(true);
+              }}
+              icon={isClicked ? <CheckOutlined /> : <PlusOutlined />}>
               Add to library
             </Button>
             <Button type='link' href='https://twitter.com/twitter/'>
