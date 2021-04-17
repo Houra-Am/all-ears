@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.8.3",
     "antd": "^4.15.0",
     "bootstrap": "^4.6.0",
+    "hover.css": "^2.3.2",
     "react": "^17.0.2",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-audio-player": "^0.16.1",

@@ -13,7 +13,7 @@ const Home = () => {
     <>
       <HorizontalMenu />
       <div className='main-wrapper'>
-        <Layout style={{ padding: "0 24px 24px" }}>
+        <Layout>
           <HomeBanner />
           <Divider />
           <HomeMiddleSection />

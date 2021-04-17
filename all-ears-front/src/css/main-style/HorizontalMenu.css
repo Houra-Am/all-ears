@@ -1,12 +1,25 @@
+.horizontal-menu {
+  height: 65px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
 .logo {
   float: left;
-  margin: 8px 24px 8px 0;
+  margin: 8px 24px 8px 0px;
 }
 
-.site-layout-background {
-  background: #fff;
+.search-bar {
+  margin-top: 5px;
+  border-radius: 10px;
 }
 
-.horizontal-menu {
-  color: coral;
+.searchBarPos {
+  float: right;
+}
+
+.main-header {
+  padding: 0 90px;
 }

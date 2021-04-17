@@ -10,9 +10,8 @@ const HomeBanner = () => {
       <Content
         className='site-layout-background'
         style={{
-          padding: 40,
-          margin: 0,
-          minHeight: 280,
+          marginTop: 60,
+          minHeight: 380,
         }}>
         <Row>
           <Col span={12}>
