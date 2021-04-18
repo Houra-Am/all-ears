@@ -39,14 +39,17 @@ const Podcasts = (props) => {
       <Layout>
         <PodStructure />
         <Layout style={{ padding: "0 24px 24px" }}>
-          <SearchBar />
-          <Breadcrumb style={{ margin: "16px 0" }}>
-            <div className='demo-nav'>
-              <Link to='/library'>
-                <MdLibraryMusic /> Your Library
-              </Link>
-            </div>
-          </Breadcrumb>
+          <Row>
+            <Col span={8}>
+              <Breadcrumb style={{ margin: "19px 0" }}>
+                <Breadcrumb.Item>Home</Breadcrumb.Item>
+                <Breadcrumb.Item>Podcasts</Breadcrumb.Item>
+              </Breadcrumb>
+            </Col>
+            <Col span={8} offset={8}>
+              <SearchBar />
+            </Col>
+          </Row>
 
           <div>
             {podcasts && (

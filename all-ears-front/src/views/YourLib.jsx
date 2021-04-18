@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Layout, Breadcrumb, Card, Col, Row, Divider } from "antd";
 import { Link } from "react-router-dom";
-import { FaHeadphonesAlt } from "react-icons/fa";
 import PodStructure from "../components/podcasts/PodStructure";
 import TopicTags from "../components/podcasts/TopicTags";
 import LibItems from "../components/Library/LibItems";
@@ -45,20 +44,23 @@ const YourLib = () => {
       <Layout>
         <PodStructure />
         <Layout style={{ padding: "0 24px 24px" }}>
-          <SearchBar />
-          <Breadcrumb style={{ margin: "16px 0" }}>
-            <div className='demo-nav'>
-              <Link to='/podcasts/genre/144'>
-                <FaHeadphonesAlt /> Podcasts
-              </Link>
-            </div>
-          </Breadcrumb>
+          <Row>
+            <Col span={8}>
+              <Breadcrumb style={{ margin: "16px 0" }}>
+                <Breadcrumb.Item>Home</Breadcrumb.Item>
+                <Breadcrumb.Item>Your Library</Breadcrumb.Item>
+              </Breadcrumb>
+            </Col>
+            <Col span={8} offset={8}>
+              <SearchBar />
+            </Col>
+          </Row>
 
           {noLikes && (
             <Card
               style={{ marginTop: 16 }}
               type='inner'
-              title='Inner Card title'>
+              title='Your saved items'>
               You don't have any saved item in your library
             </Card>
           )}
@@ -67,7 +69,7 @@ const YourLib = () => {
             <Card
               style={{ marginTop: 16 }}
               type='inner'
-              title='Inner Card title'>
+              title='Your saved items'>
               <Link to='/login'>Login</Link> or <Link to='/signup'>create</Link>{" "}
               an account to add podcasts to your library.
               <Divider />

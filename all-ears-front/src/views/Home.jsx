@@ -15,9 +15,7 @@ const Home = () => {
       <div className='main-wrapper'>
         <Layout>
           <HomeBanner />
-          <Divider />
           <HomeMiddleSection />
-          <Divider />
           <HomeBottom />
           <Footer style={{ textAlign: "center" }}>
             Ant Design ©2018 Created by Ant UED

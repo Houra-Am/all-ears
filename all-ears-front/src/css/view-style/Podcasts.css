@@ -2,3 +2,30 @@
   padding: 8px 0;
   background: #00a0e9;
 }
+
+.side-bar {
+  background: #fff;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.side-bar-logo {
+  height: 32px;
+  margin: 16px;
+}
+
+.side-logo {
+  float: left;
+  margin: 0px 24px 0px 0px;
+}
+
+.logo-title {
+  margin: 16px;
+  font-weight: 700;
+}
+
+.searchBarPos {
+  float: right;
+}

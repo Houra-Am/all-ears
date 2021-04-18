@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Layout, Card, Row, Col, Button } from "antd";
-import head from "../../image/head.png";
+import imagination from "../../image/imagination.png";
 const { Content } = Layout;
 
 const HomeBanner = () => {
@@ -30,7 +30,7 @@ const HomeBanner = () => {
             <img
               className='header-image'
               alt='example'
-              src={head}
+              src={imagination}
               style={{ height: 546, width: 546 }}></img>
             {/*  </Card> */}
           </Col>

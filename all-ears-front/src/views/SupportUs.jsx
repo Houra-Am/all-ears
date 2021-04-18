@@ -7,7 +7,9 @@ const SupportUs = () => {
   return (
     <>
       <HorizontalMenu />
-      <h4>We need your support</h4>
+      <div>
+        <h4>We need your support</h4>
+      </div>
     </>
   );
 };
