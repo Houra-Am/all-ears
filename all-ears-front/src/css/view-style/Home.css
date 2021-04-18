@@ -13,7 +13,7 @@
 .listen-now {
   background-color: #f7451d;
   height: 60px;
-  border: solid;
+  border: none;
   color: #ffffff;
   padding: 0px 100px;
   text-align: center;

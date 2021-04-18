@@ -28,14 +28,11 @@ const SearchPage = (props) => {
         return response.json();
       })
       .then((response) => {
-       
-        if(response.statusCode == 200){
+        if (response.statusCode == 200) {
           setPodcasts(response.body.results);
-         
-        }else{
+        } else {
           setPodcasts([]);
         }
-      
       });
   };
 
@@ -45,17 +42,18 @@ const SearchPage = (props) => {
 
   return (
     <div>
-        <Layout>
-          <PodStructure />
-          <Layout style={{ padding: "0 24px 24px" }}>
-            <SearchBar />
-            <Breadcrumb style={{ margin: "16px 0" }}>
-              <Link to='/podcasts/genre/144'>
-                <FaHeadphonesAlt /> Podcasts
-              </Link>
-            </Breadcrumb>
+      <Layout>
+        <PodStructure />
+        <Layout style={{ padding: "0 24px 24px" }}>
+          <SearchBar />
+          <Breadcrumb style={{ margin: "16px 0" }}>
+            <Link to='/podcasts/genre/144'>
+              <FaHeadphonesAlt /> Podcasts
+            </Link>
+          </Breadcrumb>
 
-            {podcasts.length > 0 ? ( <List
+          {podcasts.length > 0 ? (
+            <List
               itemLayout='horizontal'
               dataSource={podcasts}
               renderItem={(item) => (
@@ -105,20 +103,20 @@ const SearchPage = (props) => {
                   </Card>
                 </List.Item>
               )}
-            />):(
-              <div>
-                <p>No result</p>
-              </div>
-            )}
-            <Divider />
-            <Card id='discover' type='inner' title='Browse By Topic'>
-              <Row>
-                <TopicTag />
-              </Row>
-            </Card>
-          </Layout>
+            />
+          ) : (
+            <div>
+              <p>No result</p>
+            </div>
+          )}
+          <Divider />
+          <Card id='discover' type='inner' title='Browse By Topic'>
+            <Row>
+              <TopicTag />
+            </Row>
+          </Card>
         </Layout>
-      
+      </Layout>
       )
     </div>
   );

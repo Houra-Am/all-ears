@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Layout, Breadcrumb, Divider, Menu } from "antd";
+import { Layout, Breadcrumb, Divider, Menu, Card, Row, Col } from "antd";
 import { Link } from "react-router-dom";
 import ShowDetails from "../components/podPage/ShowDetails";
 import EpisodeCard from "../components/podPage/EpisodeCard";
@@ -7,7 +7,7 @@ import Player from "../components/podPage/Player";
 import HorizontalMenu from "../components/main/HorizontalMenu";
 /* import EllipsisText from "react-ellipsis-text"; */
 
-const { Content, Header } = Layout;
+const { Content } = Layout;
 
 const PodcastsPage = (props) => {
   //  const [onePodImg, setOnePodImg] = useState([]);
@@ -31,16 +31,16 @@ const PodcastsPage = (props) => {
     fetch(`http://localhost:8000/podcasts/like/${props.match.params.id}`, {
       method: "POST",
       headers: {
-        'Authorization': "Bearer " + localStorage.getItem('token'),
-      }
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
     })
       .then((response) => {
         return response.json();
       })
       .then((response) => {
-        console.log(response)
-      })
-  }
+        console.log(response);
+      });
+  };
 
   useEffect(() => {
     getEachPod();
@@ -59,42 +59,65 @@ const PodcastsPage = (props) => {
           className='site-layout-background'
           style={{ padding: "24px 0" }}>
           <Content style={{ padding: "0 24px", minHeight: 280 }}>
-            {podcast && (
-              <ShowDetails
-                title={podcast.title}
-                description={podcast.description}
-                img={podcast.image}
-                publisher={podcast.publisher}
-                language={podcast.language}
-                total_episodes={podcast.total_episodes}
-                onClick={likePodcast}
-              />
-            )}
+            <Row>
+              <Col span={8}>
+                {podcast && (
+                  <ShowDetails
+                    title={podcast.title}
+                    description={podcast.description}
+                    img={podcast.image}
+                    publisher={podcast.publisher}
+                    language={podcast.language}
+                    total_episodes={podcast.total_episodes}
+                    onClick={likePodcast}
+                  />
+                )}
+              </Col>
 
-            <h2>Episodes</h2>
-            {episodes &&
-              episodes.map((episode) => {
-                return (
-                  <>
-                    <h6>{episode.title}</h6>
-                    <Player
-                      audio={episode.audio}
-                      thumbnail={episode.thumbnail}
-                    />
-                    <EpisodeCard
-                      title={episode.title}
-                      thumbnail={episode.thumbnail}
-                      image={episode.image}
-                      description={episode.description}
-                    />
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: episode.description,
-                      }}></div>
-                    <Divider />
-                  </>
-                );
-              })}
+              <Col span={16}>
+                <Col>
+                  <div
+                    className='show-description'
+                    dangerouslySetInnerHTML={{
+                      __html: podcast.description,
+                    }}></div>
+                </Col>
+
+                <Col>
+                  <Card title='Episodes'>
+                    <Row>
+                      {episodes &&
+                        episodes.map((episode) => {
+                          return (
+                            <>
+                              <Col>
+                                <Content>
+                                  <h6>{episode.title}</h6>
+                                  <Player
+                                    audio={episode.audio}
+                                    thumbnail={episode.thumbnail}
+                                  />
+                                  <EpisodeCard
+                                    title={episode.title}
+                                    thumbnail={episode.thumbnail}
+                                    image={episode.image}
+                                    description={episode.description}
+                                  />
+                                  <div
+                                    dangerouslySetInnerHTML={{
+                                      __html: episode.description,
+                                    }}></div>
+                                  <Divider />
+                                </Content>
+                              </Col>
+                            </>
+                          );
+                        })}
+                    </Row>
+                  </Card>
+                </Col>
+              </Col>
+            </Row>
           </Content>
         </Layout>
       </Content>
