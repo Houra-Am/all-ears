@@ -1,4 +1,5 @@
 import React from "react";
+import { Card } from "antd";
 import ReactWebMediaPlayer from "react-web-media-player";
 
 const Player = (props) => {

@@ -18,3 +18,8 @@
 .show-description {
   padding-bottom: 20px;
 }
+
+.episode-description {
+  height: 60px;
+  overflow: scroll;
+}

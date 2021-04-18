@@ -5,6 +5,7 @@ import ShowDetails from "../components/podPage/ShowDetails";
 import EpisodeCard from "../components/podPage/EpisodeCard";
 import Player from "../components/podPage/Player";
 import HorizontalMenu from "../components/main/HorizontalMenu";
+import "../css/view-style/PodcastPage.css";
 /* import EllipsisText from "react-ellipsis-text"; */
 
 const { Content } = Layout;
@@ -21,6 +22,7 @@ const PodcastsPage = (props) => {
         return response.json();
       })
       .then((result) => {
+        console.log("episodes", result.body.episodes);
         setPodcast(result.body);
         setEpisodes(result.body.episodes);
       })
@@ -75,47 +77,47 @@ const PodcastsPage = (props) => {
               </Col>
 
               <Col span={16}>
-                <Col>
-                  <div
-                    className='show-description'
-                    dangerouslySetInnerHTML={{
-                      __html: podcast.description,
-                    }}></div>
-                </Col>
+                {/* <div
+                  className='show-description'
+                  dangerouslySetInnerHTML={{
+                    __html: podcast.description,
+                  }}></div> */}
 
-                <Col>
-                  <Card title='Episodes'>
-                    <Row>
-                      {episodes &&
-                        episodes.map((episode) => {
-                          return (
-                            <>
-                              <Col>
-                                <Content>
-                                  <h6>{episode.title}</h6>
-                                  <Player
-                                    audio={episode.audio}
-                                    thumbnail={episode.thumbnail}
-                                  />
-                                  <EpisodeCard
-                                    title={episode.title}
-                                    thumbnail={episode.thumbnail}
-                                    image={episode.image}
-                                    description={episode.description}
-                                  />
-                                  <div
-                                    dangerouslySetInnerHTML={{
-                                      __html: episode.description,
-                                    }}></div>
-                                  <Divider />
-                                </Content>
+                <Card title='Episodes'>
+                  <Row>
+                    {episodes &&
+                      episodes.map((episode) => {
+                        return (
+                          <>
+                            <Row>
+                              <Col span={8}>
+                                <Player
+                                  audio={episode.audio}
+                                  thumbnail={episode.thumbnail}
+                                />
                               </Col>
-                            </>
-                          );
-                        })}
-                    </Row>
-                  </Card>
-                </Col>
+
+                              <Col span={16}>
+                                <h6>{episode.title}</h6>
+                                {/* <div
+                                  className='episode-description'
+                                  dangerouslySetInnerHTML={{
+                                    __html: episode.description,
+                                  }}></div> */}
+                                <EpisodeCard
+                                  title={episode.title}
+                                  thumbnail={episode.thumbnail}
+                                  image={episode.image}
+                                  description={episode.description}
+                                />
+                              </Col>
+                              <Divider />
+                            </Row>
+                          </>
+                        );
+                      })}
+                  </Row>
+                </Card>
               </Col>
             </Row>
           </Content>
