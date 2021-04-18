@@ -1,6 +1,6 @@
 .banner-title {
   font-family: "Montserrat", sans-serif;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 4rem;
   padding-right: 40px;
 }
@@ -44,10 +44,11 @@
 
 .middle-sec-title {
   font-family: "Montserrat", sans-serif;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 4rem;
   padding-left: 40px;
   line-height: 1.3;
+  word-spacing: 5px;
 }
 
 #listen-now-btn {
@@ -57,13 +58,15 @@
 /*Home Bottom Section*/
 .discover-title {
   font-family: "Montserrat", sans-serif;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 4rem;
   padding-right: 40px;
 }
 
 .discover-text {
   font-size: 1rem;
+  padding-right: 40px;
+  padding-top: 30px;
 }
 
 .home-bottom-thumbnail {

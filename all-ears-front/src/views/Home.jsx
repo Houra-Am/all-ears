@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Breadcrumb, Divider } from "antd";
+import { Layout } from "antd";
 import HorizontalMenu from "../components/main/HorizontalMenu";
 import HomeMiddleSection from "../components/homepage/HomeMiddleSection";
 import HomeBanner from "../components/homepage/HomeBanner";

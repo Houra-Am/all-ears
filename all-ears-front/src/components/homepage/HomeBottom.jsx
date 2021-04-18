@@ -51,14 +51,11 @@ const HomeBottom = () => {
 
         <Col span={12}>
           {/* <Row justify='end' style={{ width: 500, margin: 0 }} gutter={[40, 8]}> */}
-          <Row gutter={[40, 48]}>
+          <Row gutter={[24, 32]}>
             {podcastThumbnail &&
               podcastThumbnail.map((podThumb) => {
                 return (
-                  <Col
-                    className='gutter-row home-bottom-thumbnail'
-                    style={{ padding: 0 }}
-                    span={8}>
+                  <Col className='gutter-row home-bottom-thumbnail' span={8}>
                     <Thumbnail
                       className='podcast-thumbnail'
                       thumbnail={podThumb.thumbnail}></Thumbnail>

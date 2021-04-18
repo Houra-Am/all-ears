@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Card, List, Space, Layout, Breadcrumb, Divider, Row } from "antd";
+import { Card, List, Space, Layout, Breadcrumb, Divider, Row, Col } from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
-import { FaHeadphonesAlt } from "react-icons/fa";
 import PodStructure from "../components/podcasts/PodStructure";
 import SearchBar from "../components/main/SearchBar";
 import TopicTag from "../components/podcasts/TopicTags";
 import "../css/view-style/SearchPage.css";
 
 const { Meta } = Card;
+const { Footer } = Layout;
 
 const IconText = ({ icon, text }) => (
   <Space>
@@ -45,76 +45,90 @@ const SearchPage = (props) => {
       <Layout>
         <PodStructure />
         <Layout style={{ padding: "0 24px 24px" }}>
-          <SearchBar />
-          <Breadcrumb style={{ margin: "16px 0" }}>
-            <Link to='/podcasts/genre/144'>
-              <FaHeadphonesAlt /> Podcasts
-            </Link>
-          </Breadcrumb>
+          <Row>
+            <Col span={8}>
+              <Breadcrumb style={{ margin: "19px 0" }}>
+                <Breadcrumb.Item>Search</Breadcrumb.Item>
+                <Breadcrumb.Item>Podcasts</Breadcrumb.Item>
+              </Breadcrumb>
+            </Col>
+            <Col span={8} offset={8}>
+              <SearchBar />
+            </Col>
+          </Row>
 
-          {podcasts.length > 0 ? (
-            <List
-              itemLayout='horizontal'
-              dataSource={podcasts}
-              renderItem={(item) => (
-                <List.Item key={item.title_original}>
-                  <Card>
-                    <Meta title={item.title_original} />
-                    <Link to={`/podcast/${item.id}`}>
-                      <Card
-                        className='card'
-                        hoverable
-                        style={{ width: 150, height: 150 }}
-                        cover={
+          <Card type='inner' title='Search result'>
+            {podcasts.length > 0 ? (
+              <List
+                itemLayout='horizontal'
+                dataSource={podcasts}
+                renderItem={(item) => (
+                  <div className='site-card-wrapper'>
+                    <Row gutter={16}>
+                      <Col span={6}>
+                        <Link to={`/podcast/${item.id}`}>
                           <img
                             alt='example'
                             src={item.image}
                             title={item.title_original}
+                            style={{
+                              width: 200,
+                              height: 200,
+                              borderRadius: 10,
+                            }}
                           />
-                        }
-                      />
-                    </Link>
+                        </Link>
+                      </Col>
+                      <Col span={18}>
+                        <Card bordered={false}>
+                          <h6>{item.title_original}</h6>
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: item.description_original,
+                            }}></div>
 
-                    <Card
-                      actions={[
-                        <IconText
-                          icon={StarOutlined}
-                          text='156'
-                          key='list-vertical-star-o'
-                        />,
-                        <IconText
-                          icon={LikeOutlined}
-                          text='156'
-                          key='list-vertical-like-o'
-                        />,
-                        <IconText
-                          icon={MessageOutlined}
-                          text='2'
-                          key='list-vertical-message'
-                        />,
-                      ]}
-                      bordered={false}
-                      style={{ width: 300 }}>
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: item.description_original,
-                        }}></div>
-                    </Card>
-                  </Card>
-                </List.Item>
-              )}
-            />
-          ) : (
-            <div>
-              <p>No result</p>
-            </div>
-          )}
+                          <List.Item
+                            key={item.title_original}
+                            actions={[
+                              <IconText
+                                icon={StarOutlined}
+                                text='156'
+                                key='list-vertical-star-o'
+                              />,
+                              <IconText
+                                icon={LikeOutlined}
+                                text='156'
+                                key='list-vertical-like-o'
+                              />,
+                              <IconText
+                                icon={MessageOutlined}
+                                text='2'
+                                key='list-vertical-message'
+                              />,
+                            ]}
+                            style={{ float: "left" }}></List.Item>
+                        </Card>
+                      </Col>
+                    </Row>
+                    <Divider />
+                  </div>
+                )}
+              />
+            ) : (
+              <div>
+                <p>No result</p>
+              </div>
+            )}
+          </Card>
           <Divider />
           <Card id='discover' type='inner' title='Browse By Topic'>
             <Row>
               <TopicTag />
             </Row>
           </Card>
+          <Footer style={{ textAlign: "center" }}>
+            All Ears ©2021 Created by HAA
+          </Footer>
         </Layout>
       </Layout>
       )
