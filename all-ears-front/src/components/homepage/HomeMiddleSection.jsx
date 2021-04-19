@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { Layout, Card, Row, Col, Button, Select } from "antd";
+import { Layout, Row, Col, Button, Select } from "antd";
 import "../../css/component-style/DropDown.css";
-import imagination from "../../image/imagination.png";
+import activity from "../../image/activity.png";
 import DropDown from "./DropDown";
 
 const { Content } = Layout;
@@ -13,7 +12,7 @@ const HomeMiddleSection = () => {
   const history = useHistory();
   const [genres, setGenres] = useState();
   const [value, setValue] = useState("");
-  const [selectedGenre, setSelectedGenre] = useState()
+  const [selectedGenre, setSelectedGenre] = useState();
 
   const getGenre = (props) => {
     const apiUrl = `http://localhost:8000/podcasts/genres?best=true`;
@@ -41,37 +40,35 @@ const HomeMiddleSection = () => {
       <Content
         className='site-layout-background'
         style={{
-          padding: 24,
           margin: 0,
-          minHeight: 280,
+          minHeight: 380,
         }}>
         <Row>
           <Col span={12}>
-            <Card
+            <img
               className='header-image'
-              hoverable
-              style={{ width: 400 }}
-              cover={<img alt='example' src={imagination} />}></Card>
+              alt='activities'
+              src={activity}
+              style={{ width: 550 }}
+            />
           </Col>
           <Col span={12}>
-            <h1>
-              I Want to Listen to{" "}
+            <h1 className='middle-sec-title'>
+              I WANT TO LISTEN TO{" "}
               {genres && (
                 <DropDown
                   defaultValue='Select a genre'
                   genres={genres}
                   onChange={(event) => {
                     const genre = genres.find((genre) => {
-                      return (
-                        genre.name == event
-                      )
-                    })
-                    setSelectedGenre(genre)
+                      return genre.name == event;
+                    });
+                    setSelectedGenre(genre);
                   }}
                   id={genres.id}
                   text={"Tech podcasts"}></DropDown>
               )}
-              While I{" "}
+              WHILE I{" "}
               <Select defaultValue='Select an activity' style={{ width: 170 }}>
                 <Option value='Cook'>Cook</Option>
                 <Option value='Run'>Run</Option>
@@ -86,6 +83,8 @@ const HomeMiddleSection = () => {
                   history.push(`/podcasts/genre/${selectedGenre.id}`);
                 }}
                 className='listen-now'
+                id='listen-now-btn'
+                style={{ marginLeft: 40 }}
                 htmlType='submit'
                 type='primary'>
                 LISTEN NOW

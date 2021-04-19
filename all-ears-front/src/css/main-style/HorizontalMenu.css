@@ -1,16 +1,25 @@
-#components-layout-demo-top-side-2 .logo {
+.horizontal-menu {
+  height: 65px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.logo {
   float: left;
-  width: 120px;
-  height: 31px;
-  margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.3);
+  margin: 8px 24px 8px 0px;
 }
 
-.ant-row-rtl #components-layout-demo-top-side-2 .logo {
+.search-bar {
+  margin-top: 5px;
+  border-radius: 10px;
+}
+
+.searchBarPos {
   float: right;
-  margin: 16px 0 16px 24px;
 }
 
-.site-layout-background {
-  background: #fff;
+.main-header {
+  padding: 0 90px;
 }

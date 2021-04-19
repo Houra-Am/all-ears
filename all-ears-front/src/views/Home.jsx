@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Breadcrumb, Divider } from "antd";
+import { Layout } from "antd";
 import HorizontalMenu from "../components/main/HorizontalMenu";
 import HomeMiddleSection from "../components/homepage/HomeMiddleSection";
 import HomeBanner from "../components/homepage/HomeBanner";
@@ -13,14 +13,12 @@ const Home = () => {
     <>
       <HorizontalMenu />
       <div className='main-wrapper'>
-        <Layout style={{ padding: "0 24px 24px" }}>
+        <Layout>
           <HomeBanner />
-          <Divider />
           <HomeMiddleSection />
-          <Divider />
           <HomeBottom />
           <Footer style={{ textAlign: "center" }}>
-            Ant Design ©2018 Created by Ant UED
+            All Ears ©2021 Created by HAA
           </Footer>
         </Layout>
       </div>

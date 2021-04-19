@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Layout, Breadcrumb, Divider, Menu } from "antd";
+import { Layout, Breadcrumb, Divider, Menu, Card, Row, Col } from "antd";
 import { Link } from "react-router-dom";
 import ShowDetails from "../components/podPage/ShowDetails";
 import EpisodeCard from "../components/podPage/EpisodeCard";
 import Player from "../components/podPage/Player";
 import HorizontalMenu from "../components/main/HorizontalMenu";
+import "../css/view-style/PodcastPage.css";
 /* import EllipsisText from "react-ellipsis-text"; */
 
-const { Content, Header } = Layout;
+const { Content, Footer } = Layout;
 
 const PodcastsPage = (props) => {
   //  const [onePodImg, setOnePodImg] = useState([]);
@@ -21,6 +22,7 @@ const PodcastsPage = (props) => {
         return response.json();
       })
       .then((result) => {
+        console.log("episodes", result.body.episodes);
         setPodcast(result.body);
         setEpisodes(result.body.episodes);
       })
@@ -31,16 +33,16 @@ const PodcastsPage = (props) => {
     fetch(`http://localhost:8000/podcasts/like/${props.match.params.id}`, {
       method: "POST",
       headers: {
-        'Authorization': "Bearer " + localStorage.getItem('token'),
-      }
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
     })
       .then((response) => {
         return response.json();
       })
       .then((response) => {
-        console.log(response)
-      })
-  }
+        console.log(response);
+      });
+  };
 
   useEffect(() => {
     getEachPod();
@@ -59,49 +61,81 @@ const PodcastsPage = (props) => {
           className='site-layout-background'
           style={{ padding: "24px 0" }}>
           <Content style={{ padding: "0 24px", minHeight: 280 }}>
-            {podcast && (
-              <ShowDetails
-                title={podcast.title}
-                description={podcast.description}
-                img={podcast.image}
-                publisher={podcast.publisher}
-                language={podcast.language}
-                total_episodes={podcast.total_episodes}
-                onClick={likePodcast}
-              />
-            )}
+            <Row>
+              <Col span={8}>
+                {podcast && (
+                  <ShowDetails
+                    title={podcast.title}
+                    description={podcast.description}
+                    img={podcast.image}
+                    publisher={podcast.publisher}
+                    language={podcast.language}
+                    total_episodes={podcast.total_episodes}
+                    onClick={likePodcast}
+                  />
+                )}
+              </Col>
 
-            <h2>Episodes</h2>
-            {episodes &&
-              episodes.map((episode) => {
-                return (
-                  <>
-                    <h6>{episode.title}</h6>
-                    <Player
-                      audio={episode.audio}
-                      thumbnail={episode.thumbnail}
-                    />
-                    <EpisodeCard
-                      title={episode.title}
-                      thumbnail={episode.thumbnail}
-                      image={episode.image}
-                      description={episode.description}
-                    />
+              <Col span={16}>
+                {podcast && (
+                  <Col span={22}>
                     <div
+                      className='show-description'
                       dangerouslySetInnerHTML={{
-                        __html: episode.description,
-                      }}></div>
-                    <Divider />
-                  </>
-                );
-              })}
+                        __html: podcast.description,
+                      }}
+                    />
+                  </Col>
+                )}
+                <Card title='Episodes'>
+                  <Row>
+                    {episodes &&
+                      episodes.map((episode) => {
+                        return (
+                          <>
+                            <Row>
+                              <Col span={8}>
+                                <Player
+                                  audio={episode.audio}
+                                  thumbnail={episode.thumbnail}
+                                />
+                              </Col>
+
+                              {podcast && (
+                                <Col span={16}>
+                                  <h6>{episode.title}</h6>
+                                  <div
+                                    className='episode-description'
+                                    dangerouslySetInnerHTML={{
+                                      __html: episode.description,
+                                    }}
+                                  />
+
+                                  <EpisodeCard
+                                    title={episode.title}
+                                    thumbnail={episode.thumbnail}
+                                    image={episode.image}
+                                    description={episode.description}
+                                  />
+                                </Col>
+                              )}
+                              <Divider />
+                            </Row>
+                          </>
+                        );
+                      })}
+                  </Row>
+                </Card>
+              </Col>
+            </Row>
           </Content>
         </Layout>
       </Content>
+      <Footer style={{ textAlign: "center" }}>
+        All Ears ©2021 Created by HAA
+      </Footer>
     </Layout>
   );
 };
 
 export default PodcastsPage;
-
-/*dangerouslySetInnerHTML={{ __html: props.description }} */

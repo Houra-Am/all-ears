@@ -14,3 +14,12 @@
 .site-layout-background {
   background: #fff;
 }
+
+.show-description {
+  padding-bottom: 40px;
+}
+
+.episode-description {
+  height: 60px;
+  overflow: scroll;
+}

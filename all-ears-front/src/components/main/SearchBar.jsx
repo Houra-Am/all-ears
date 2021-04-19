@@ -16,7 +16,7 @@ const SearchBar = () => {
       <Search
         placeholder='Search'
         onSearch={onSearch}
-        style={{ width: 200, paddingTop: 10 }}
+        style={{ width: 200, paddingTop: 17, float: "right" }}
       />
     </div>
   );

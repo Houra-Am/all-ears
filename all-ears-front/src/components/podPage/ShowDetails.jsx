@@ -1,9 +1,5 @@
-import React, { useEffect, useState } from "react";
-import Lottie from "react-lottie";
-import Add from "../../image/add.json";
-/* import {FaRegCheckCircle} from 'react-icons/fa' */
-
-import { Card, Divider, Button, Col, Row } from "antd";
+import React, { useState } from "react";
+import { Card, Divider, Button, Col } from "antd";
 import {
   PlusOutlined,
   CheckOutlined,
@@ -11,48 +7,49 @@ import {
   InstagramFilled,
   TwitterSquareFilled,
 } from "@ant-design/icons";
+import "../../css/component-style/ShowDetails.css";
 
 const ShowDetails = (props) => {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
     <div className='site-card-wrapper'>
-      <Row gutter={16}>
-        <Col span={8}>
-          <Card
-            hoverable
-            style={{ width: 240 }}
-            cover={<img alt='example' src={props.img} />}>
-            <h6>{props.title}</h6>
-            <p>Created By: </p>
-            <p>{props.publisher}</p>
-            <Divider />
-            <p>Language: {props.language} </p>
-            <p>Episodes: {props.total_episodes}</p>
+      <Card
+        style={{ width: 280 }}
+        cover={<img alt='example' src={props.img} />}>
+        <h6>{props.title}</h6>
+        <p>Created By: </p>
+        <p>{props.publisher}</p>
+        <Divider />
+        <p>Language: {props.language} </p>
+        <p>Episodes: {props.total_episodes}</p>
 
-            <Button
-              onClick={() => {
-                props.onClick();
-                setIsClicked(true);
-              }}
-              icon={isClicked ? <CheckOutlined /> : <PlusOutlined />}>
-              Add to library
-            </Button>
-            <Button type='link' href='https://twitter.com/twitter/'>
-              <TwitterSquareFilled />
-            </Button>
-            <Button type='link' href='https://www.facebook.com/facebook/'>
-              <FacebookFilled />
-            </Button>
-            <Button type='link' href='https://www.instagram.com/home/'>
-              <InstagramFilled />
-            </Button>
-          </Card>
-        </Col>
-        <Col span={16}>
-          <div dangerouslySetInnerHTML={{ __html: props.description }}></div>
-        </Col>
-      </Row>
+        <Button
+          className='add-library-btn'
+          onClick={() => {
+            props.onClick();
+            setIsClicked(true);
+          }}
+          icon={isClicked ? <CheckOutlined /> : <PlusOutlined />}>
+          Add to library
+        </Button>
+        <Button className='twitter-btn' type='link' href='https://twitter.com'>
+          <TwitterSquareFilled style={{ fontSize: 20 }} />
+        </Button>
+        <Button className='fb-btn' type='link' href='https://www.facebook.com'>
+          <FacebookFilled style={{ fontSize: 20 }} />
+        </Button>
+        <Button
+          className='instagram-btn'
+          type='link'
+          href='https://www.instagram.com'>
+          <InstagramFilled style={{ fontSize: 20 }} />
+        </Button>
+      </Card>
+
+      {/* <Col span={16}>
+        <div dangerouslySetInnerHTML={{ __html: props.description }}></div>
+      </Col> */}
     </div>
   );
 };

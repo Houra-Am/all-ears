@@ -1,0 +1,25 @@
+.add-library-btn {
+  height: 40px;
+  border-radius: 8px;
+  padding: 0 25px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  background-color: #f7451d;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.twitter-btn {
+  color: #ee684c;
+}
+.fb-btn {
+  color: #ee684c;
+}
+.instagram-btn {
+  color: #ee684c;
+}

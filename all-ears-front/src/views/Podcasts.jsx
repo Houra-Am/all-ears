@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Layout, Breadcrumb, Card, Col, Row } from "antd";
 import { Link } from "react-router-dom";
-import { MdLibraryMusic } from "react-icons/md";
 import PodStructure from "../components/podcasts/PodStructure";
 import CarouselBanner from "../components/podcasts/CarouselBanner";
 import TopSearchedCard from "../components/podcasts/TopSearchedCard";
@@ -10,7 +9,7 @@ import TopicTags from "../components/podcasts/TopicTags";
 import SearchBar from "../components/main/SearchBar";
 import "../css/view-style/Podcasts.css";
 
-const { Content } = Layout;
+const { Content, Footer } = Layout;
 const style = { padding: "30px 0", margin: "auto" };
 
 const Podcasts = (props) => {
@@ -39,14 +38,17 @@ const Podcasts = (props) => {
       <Layout>
         <PodStructure />
         <Layout style={{ padding: "0 24px 24px" }}>
-          <SearchBar />
-          <Breadcrumb style={{ margin: "16px 0" }}>
-            <div className='demo-nav'>
-              <Link to='/library'>
-                <MdLibraryMusic /> Your Library
-              </Link>
-            </div>
-          </Breadcrumb>
+          <Row>
+            <Col span={8}>
+              <Breadcrumb style={{ margin: "19px 0" }}>
+                <Breadcrumb.Item>Home</Breadcrumb.Item>
+                <Breadcrumb.Item>Podcasts</Breadcrumb.Item>
+              </Breadcrumb>
+            </Col>
+            <Col span={8} offset={8}>
+              <SearchBar />
+            </Col>
+          </Row>
 
           <div>
             {podcasts && (
@@ -109,6 +111,9 @@ const Podcasts = (props) => {
           </Card>
         </Layout>
       </Layout>
+      <Footer style={{ textAlign: "center" }}>
+        All Ears ©2021 Created by HAA
+      </Footer>
     </div>
   );
 };
