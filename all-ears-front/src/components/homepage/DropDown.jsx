@@ -7,7 +7,7 @@ const DropDown = (props) => {
   return (
     <>
       <Select
-        defaultValue='Select an activity'
+        defaultValue='Select a genre'
         style={{ width: 170, marginRight: 20, bottom: 8 }}
         onChange={props.onChange}>
         {props.genres &&
