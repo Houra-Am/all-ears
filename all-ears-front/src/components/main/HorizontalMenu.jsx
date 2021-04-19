@@ -30,9 +30,6 @@ const HorizontalMenu = () => {
           <Menu.Item key='2'>
             <Link to='/podcasts/genre/144'>Podcasts</Link>
           </Menu.Item>
-          <Menu.Item key='3'>
-            <Link to='/supportUs'>Support Us</Link>
-          </Menu.Item>
         </Menu>
       </Header>
     </>

@@ -8,7 +8,7 @@ import HorizontalMenu from "../components/main/HorizontalMenu";
 import "../css/view-style/PodcastPage.css";
 /* import EllipsisText from "react-ellipsis-text"; */
 
-const { Content } = Layout;
+const { Content, Footer } = Layout;
 
 const PodcastsPage = (props) => {
   //  const [onePodImg, setOnePodImg] = useState([]);
@@ -75,16 +75,18 @@ const PodcastsPage = (props) => {
                   />
                 )}
               </Col>
-              {/* <Col>
-                <div className='show-description'>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: podcast.description,
-                    }}
-                  />
-                </div>
-              </Col> */}
+
               <Col span={16}>
+                {podcast && (
+                  <Col span={22}>
+                    <div
+                      className='show-description'
+                      dangerouslySetInnerHTML={{
+                        __html: podcast.description,
+                      }}
+                    />
+                  </Col>
+                )}
                 <Card title='Episodes'>
                   <Row>
                     {episodes &&
@@ -99,20 +101,24 @@ const PodcastsPage = (props) => {
                                 />
                               </Col>
 
-                              <Col span={16}>
-                                <h6>{episode.title}</h6>
-                                {/* <div
-                                  dangerouslySetInnerHTML={{
-                                    __html: episode.description,
-                                  }}
-                                /> */}
-                                <EpisodeCard
-                                  title={episode.title}
-                                  thumbnail={episode.thumbnail}
-                                  image={episode.image}
-                                  description={episode.description}
-                                />
-                              </Col>
+                              {podcast && (
+                                <Col span={16}>
+                                  <h6>{episode.title}</h6>
+                                  <div
+                                    className='episode-description'
+                                    dangerouslySetInnerHTML={{
+                                      __html: episode.description,
+                                    }}
+                                  />
+
+                                  <EpisodeCard
+                                    title={episode.title}
+                                    thumbnail={episode.thumbnail}
+                                    image={episode.image}
+                                    description={episode.description}
+                                  />
+                                </Col>
+                              )}
                               <Divider />
                             </Row>
                           </>
@@ -125,6 +131,9 @@ const PodcastsPage = (props) => {
           </Content>
         </Layout>
       </Content>
+      <Footer style={{ textAlign: "center" }}>
+        All Ears ©2021 Created by HAA
+      </Footer>
     </Layout>
   );
 };

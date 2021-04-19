@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Layout, Breadcrumb, Card, Col, Row } from "antd";
 import { Link } from "react-router-dom";
-
 import PodStructure from "../components/podcasts/PodStructure";
 import CarouselBanner from "../components/podcasts/CarouselBanner";
 import TopSearchedCard from "../components/podcasts/TopSearchedCard";
@@ -10,7 +9,7 @@ import TopicTags from "../components/podcasts/TopicTags";
 import SearchBar from "../components/main/SearchBar";
 import "../css/view-style/Podcasts.css";
 
-const { Content } = Layout;
+const { Content, Footer } = Layout;
 const style = { padding: "30px 0", margin: "auto" };
 
 const Podcasts = (props) => {
@@ -112,6 +111,9 @@ const Podcasts = (props) => {
           </Card>
         </Layout>
       </Layout>
+      <Footer style={{ textAlign: "center" }}>
+        All Ears ©2021 Created by HAA
+      </Footer>
     </div>
   );
 };

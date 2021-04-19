@@ -61,9 +61,9 @@ const PodStructure = () => {
         <Menu.Item key='sub7' icon={<MdLibraryMusic />} title='Library'>
           <Link to='/library'>Your Library</Link>
         </Menu.Item>
-        <Menu.Item key='sub8' icon={<RocketOutlined />} title='Support'>
+        {/*   <Menu.Item key='sub8' icon={<RocketOutlined />} title='Support'>
           <Link to='/supportUs'>Support Us</Link>
-        </Menu.Item>
+        </Menu.Item> */}
 
         {isConnected ? (
           <>
