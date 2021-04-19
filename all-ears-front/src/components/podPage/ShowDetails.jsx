@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import Lottie from "react-lottie";
-import { Card, Divider, Button, Col, Row } from "antd";
+import React, { useState } from "react";
+import { Card, Divider, Button, Col } from "antd";
 import {
   PlusOutlined,
   CheckOutlined,
@@ -48,9 +47,9 @@ const ShowDetails = (props) => {
         </Button>
       </Card>
 
-      {/*  <Col span={16}>
-          <div dangerouslySetInnerHTML={{ __html: props.description }}></div>
-        </Col> */}
+      {/* <Col span={16}>
+        <div dangerouslySetInnerHTML={{ __html: props.description }}></div>
+      </Col> */}
     </div>
   );
 };

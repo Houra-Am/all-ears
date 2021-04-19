@@ -8,7 +8,7 @@ const DropDown = (props) => {
     <>
       <Select
         defaultValue='Select an activity'
-        style={{ width: 170 }}
+        style={{ width: 170, marginRight: 20, bottom: 8 }}
         onChange={props.onChange}>
         {props.genres &&
           props.genres.slice(6, 12).map((genre, index) => {

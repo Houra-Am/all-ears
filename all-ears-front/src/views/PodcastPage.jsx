@@ -75,15 +75,16 @@ const PodcastsPage = (props) => {
                   />
                 )}
               </Col>
-
-              <Col span={16}>
-                {/* {
+              {/* <Col>
+                <div className='show-description'>
                   <div
                     dangerouslySetInnerHTML={{
                       __html: podcast.description,
-                    }}></div>
-                } */}
-
+                    }}
+                  />
+                </div>
+              </Col> */}
+              <Col span={16}>
                 <Card title='Episodes'>
                   <Row>
                     {episodes &&
@@ -103,7 +104,8 @@ const PodcastsPage = (props) => {
                                 {/* <div
                                   dangerouslySetInnerHTML={{
                                     __html: episode.description,
-                                  }}></div> */}
+                                  }}
+                                /> */}
                                 <EpisodeCard
                                   title={episode.title}
                                   thumbnail={episode.thumbnail}
@@ -128,5 +130,3 @@ const PodcastsPage = (props) => {
 };
 
 export default PodcastsPage;
-
-/*dangerouslySetInnerHTML={{ __html: props.description }} */

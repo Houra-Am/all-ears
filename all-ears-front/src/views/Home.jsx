@@ -18,7 +18,7 @@ const Home = () => {
           <HomeMiddleSection />
           <HomeBottom />
           <Footer style={{ textAlign: "center" }}>
-            Ant Design ©2018 Created by Ant UED
+            All Ears ©2021 Created by HAA
           </Footer>
         </Layout>
       </div>
