@@ -28,7 +28,6 @@ const Podcasts = (props) => {
       })
       .catch((error) => console.error(error));
   };
-
   useEffect(() => {
     getPodInfo();
   }, [props.match.params.id]);
@@ -49,13 +48,11 @@ const Podcasts = (props) => {
               <SearchBar />
             </Col>
           </Row>
-
           <div>
             {podcasts && (
               <CarouselBanner podcasts={podcasts} name={resName.name} />
             )}
           </div>
-
           <Card>
             <Card type='inner' title='Top Search'>
               <Row>
@@ -78,7 +75,6 @@ const Podcasts = (props) => {
               </Row>
             </Card>
           </Card>
-          {/* Popular podcasts */}
           <Card>
             <Card type='inner' title='Popular Podcasts'>
               <Row>
@@ -101,7 +97,6 @@ const Podcasts = (props) => {
               </Row>
             </Card>
           </Card>
-          {/* Topic Tags */}
           <Card>
             <Card id='discover' type='inner' title='Browse By Topic'>
               <Row>

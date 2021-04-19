@@ -24,6 +24,13 @@ const TopicTags = (props) => {
     getTopics();
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       {genres &&
@@ -38,7 +45,8 @@ const TopicTags = (props) => {
                     height: "50px",
                     color: "white",
                   }}
-                  className={"cat-" + index}>
+                  className={"cat-" + index}
+                  onClick={scrollToTop}>
                   {genre.name}
                 </Button>
               </Link>
